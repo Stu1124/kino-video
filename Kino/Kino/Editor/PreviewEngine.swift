@@ -45,7 +45,7 @@ public final class PreviewEngine: ObservableObject {
         rebuildToken = seq
         let kept = keepTime ? time : .zero
         // off-main build
-        rebuildQueue.async { [weak self] in
+        rebuildQueue.async { [weak self] () -> Void in
             guard let self else { return }
             do {
                 let model = try CompositionFactory.build(project: project, renderScale: renderScale, fps: project.canvas.fps)
