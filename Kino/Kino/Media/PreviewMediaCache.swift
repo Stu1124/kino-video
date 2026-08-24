@@ -109,6 +109,7 @@ public final class ThumbnailService {
         }
         return images
     }
+}
 
 /// Waveform extraction: reads a mono PCM downmix via AVAssetReader in the background.
 public final class WaveformService {
