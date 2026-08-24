@@ -42,19 +42,26 @@ jobs:
           echo "device line: $DEV"
           echo "SIM_NAME=$(echo "$DEV" | sed -E 's/^   ([^(]*)\(([0-9A-F-]{36})\).*/\1/')" >> "$GITHUB_ENV"
       - name: Build app (simulator)
+        shell: bash
         run: |
+          set -o pipefail
           xcodebuild -project Kino.xcodeproj -scheme Kino \
             -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath DerivedData \
-            CODE_SIGNING_ALLOWED=NO build | tail -5
+            CODE_SIGNING_ALLOWED=NO build 2>&1 | tee build.log | tail -8
+      - name: Show compile errors
+        if: always()
+        run: grep -E "error:|warning:" build.log | head -60 || true
       - name: Run unit + UI tests with screenshots
+        shell: bash
         run: |
+          set -o pipefail
           xcodebuild -project Kino.xcodeproj -scheme Kino \
             -destination "platform=iOS Simulator,name=iPhone 16 Pro" \
             -derivedDataPath DerivedData \
             -resultBundlePath TestResults.xcresult \
             CODE_SIGNING_ALLOWED=NO \
-            test | tail -40
+            test 2>&1 | tee test.log | tail -60
       - name: Export screenshot attachments
         if: always()
         run: |
