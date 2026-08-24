@@ -34,6 +34,7 @@ public enum FixtureFactory {
 
         let store = ProjectStore()
         let sampleID = base.appendingPathComponent("fixture-project.json")
+        var fixturesHost: UUID? = nil
         if !fm.fileExists(atPath: sampleID.path) {
             fixtures = nil
             var project = KinoProject(meta: .init(name: "Sample Edit"))
@@ -68,11 +69,12 @@ public enum FixtureFactory {
                      }()),
             ]))
             try? store.save(project)
-            fixtures = project.meta.id
-        } else {
-            fixtures = try? store.load(UUID(uuidString: "00000000-0000-0000-0000-000000000001"))?.meta.id
+            fixturesHost = project.meta.id
+        } else if let loaded = try? store.load(UUID(uuidString: "00000000-0000-0000-0000-000000000001")!) {
+            fixturesHost = loaded.meta.id
         }
-        return Fixtures(videoA: a, videoB: b, image: img, audio: wav, projectID: fixtures ?? UUID())
+        fixtures = fixturesHost
+        return Fixtures(videoA: a, videoB: b, image: img, audio: wav, projectID: fixturesHost ?? UUID())
     }
 
     public static var fixtures: UUID?

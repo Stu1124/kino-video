@@ -331,8 +331,8 @@ struct BoxedOverlayView: View {
         GeometryReader { geo in
             let size = geo.size
             let canvas2 = KVec2(Float(size.width), Float(size.height))
-            let scaleBase = KFitMath.fillScale(asset: frame.assetSize ?? KVec2(1, 1),
-                                               canvas: canvas2) * frame.transform.scale
+            let fitScale = KFitMath.fillScale(asset: frame.assetSize ?? KVec2(1, 1), canvas: canvas2)
+            let scaleBase = CGFloat(fitScale * frame.transform.scale)
             let cw = CGFloat(frame.assetSize?.x ?? 1) * scaleBase
             let ch = CGFloat(frame.assetSize?.y ?? 1) * scaleBase
             let cx = frame.transform.center.x * size.width
