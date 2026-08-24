@@ -102,7 +102,11 @@ public enum FixtureFactory {
         let fps = 30
         let w = 480, h = 270
         try? FileManager.default.removeItem(at: url)
-        guard let writer = try? AVAssetWriter(outputURL: url, fileType: .mov) else { return }
+        status = "\\(label): init writer"
+        guard let writer = try? AVAssetWriter(outputURL: url, fileType: .mov) else {
+            status = "\\(label): writer init failed"
+            return
+        }
         let settings: [String: Any] = [
             AVVideoCodecKey: AVVideoCodecType.h264,
             AVVideoWidthKey: w,
@@ -115,13 +119,27 @@ public enum FixtureFactory {
             kCVPixelBufferHeightKey as String: h,
         ]
         writer.add(input)
-        guard writer.startWriting() else { return }
+        status = "\\(label): startWriting"
+        guard writer.startWriting() else {
+            status = "\\(label): startWriting failed: \(writer.error?.localizedDescription ?? "?")"
+            return
+        }
         writer.startSession(atSourceTime: .zero)
+        status = "\\(label): encoding"
 
         let total = Int(seconds * Double(fps))
+        var failed = false
         for frame in 0..<total {
-            while !input.isReadyForMoreMediaData { usleep(1000) }
-            if writer.status != .writing { break }
+            var waited = 0.0
+            while !input.isReadyForMoreMediaData {
+                usleep(2000)
+                waited += 0.002
+                if waited > 8 { failed = true; break }
+            }
+            if failed || writer.status != .writing {
+                status = "\\(label): stalled at frame \\(frame), status=\(writer.status.rawValue) err=\(writer.error?.localizedDescription ?? "none")"
+                break
+            }
             var buf: CVPixelBuffer?
             CVPixelBufferCreate(nil, w, h, kCVPixelFormatType_32ARGB, attrs as CFDictionary, &buf)
             guard let pb = buf else { continue }
