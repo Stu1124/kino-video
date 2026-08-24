@@ -44,6 +44,9 @@ struct HomeScreen: View {
             .background(KinoTheme.backgroundColor)
             .toolbar(.hidden, for: .navigationBar)
         }
+        .navigationDestination(for: UUID.self) { id in
+            EditorScreen(projectID: id)
+        }
         .sheet(isPresented: $showImporter) {
             KinoMediaPicker { identifiers in
                 pendingImportIdentifiers = identifiers
