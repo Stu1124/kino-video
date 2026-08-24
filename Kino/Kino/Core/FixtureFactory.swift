@@ -92,7 +92,7 @@ public enum FixtureFactory {
             AVVideoHeightKey: h,
         ]
         let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings)
-        let attrs = [
+        let attrs: [String: Any] = [
             kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32ARGB,
             kCVPixelBufferWidthKey as String: w,
             kCVPixelBufferHeightKey as String: h,
@@ -139,7 +139,10 @@ public enum FixtureFactory {
             ctx!.setFillColor(UIColor.systemYellow.cgColor)
             ctx!.fillEllipse(in: CGRect(x: w / 2, y: slideY, width: 18, height: 18))
             CVPixelBufferUnlockBaseAddress(pb, [])
-            input.append(pb, withPresentationTime: CMTime(value: CMTimeValue(frame), timescale: CMTimeScale(fps)))
+            let sample = CMSampleBuffer.createFrom(pixelBuffer: pb, time: CMTime(value: CMTimeValue(frame), timescale: CMTimeScale(fps)))
+            if let sample {
+                input.append(sample)
+            }
         }
         input.markAsFinished()
         let finishSem = DispatchSemaphore(value: 0)
@@ -190,3 +193,18 @@ public enum FixtureFactory {
     }
 }
 #endif
+
+
+extension CMSampleBuffer {
+    static func createFrom(pixelBuffer: CVPixelBuffer, time: CMTime) -> CMSampleBuffer? {
+        var sample: CMSampleBuffer?
+        var timing = CMSampleTimingInfo(duration: CMTime(value: 1, timescale: 30),
+                                        presentationTimeStamp: time, decodeTimeStamp: .invalid)
+        var format: CMVideoFormatDescription?
+        CMVideoFormatDescriptionCreateForImageBuffer(allocator: nil, imageBuffer: pixelBuffer, formatDescriptionOut: &format)
+        guard let fmt = format else { return nil }
+        CMSampleBufferCreateReadyWithImageBuffer(allocator: nil, imageBuffer: pixelBuffer, formatDescription: fmt,
+                                                 sampleTiming: &timing, sampleBufferOut: &sample)
+        return sample
+    }
+}
