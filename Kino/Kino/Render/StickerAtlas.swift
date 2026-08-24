@@ -64,12 +64,14 @@ enum StickerAtlas {
             return nil
         }
         if let tint {
+            let r = CGFloat((tint >> 16) & 0xFF) / 255
+            let g = CGFloat((tint >> 8) & 0xFF) / 255
+            let b = CGFloat(tint & 0xFF) / 255
+            let c0 = CIImage(red: r, green: g, blue: b, alpha: 1)
+            let c1 = CIImage(red: 0, green: 0, blue: 0, alpha: 0)
             return base.applyingFilter("CIFalseColor", parameters: [
-                "inputColor0": CIImage(red: CGFloat((tint >> 16) & 0xFF) / 255,
-                                       green: CGFloat((tint >> 8) & 0xFF) / 255,
-                                       blue: CGFloat(tint & 0xFF) / 255,
-                                       alpha: 1),
-                "inputColor1": CIImage(red: 0, green: 0, blue: 0, alpha: 0),
+                "inputColor0": c0,
+                "inputColor1": c1,
             ])
         }
         return base
