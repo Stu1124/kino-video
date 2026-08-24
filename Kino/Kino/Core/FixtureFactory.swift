@@ -85,28 +85,28 @@ public enum FixtureFactory {
         let fps = 30
         let w = 640, h = 360
         try? FileManager.default.removeItem(at: url)
-        let writer = try! AVAssetWriter(outputURL: url, fileType: .mov)
+        guard let writer = try? AVAssetWriter(outputURL: url, fileType: .mov) else { return }
         let settings: [String: Any] = [
             AVVideoCodecKey: AVVideoCodecType.h264,
             AVVideoWidthKey: w,
             AVVideoHeightKey: h,
         ]
         let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings)
-        let attrs: [String: Any] = [
+        let attrs = [
             kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32ARGB,
             kCVPixelBufferWidthKey as String: w,
             kCVPixelBufferHeightKey as String: h,
         ]
-        let adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: attrs)
         writer.add(input)
-        writer.startWriting()
+        guard writer.startWriting() else { return }
         writer.startSession(atSourceTime: .zero)
 
         let total = Int(seconds * Double(fps))
         for frame in 0..<total {
             while !input.isReadyForMoreMediaData { usleep(1000) }
+            if writer.status != .writing { break }
             var buf: CVPixelBuffer?
-            CVPixelBufferPoolCreatePixelBuffer(nil, adaptor.pixelBufferPool!, &buf)
+            CVPixelBufferCreate(nil, w, h, kCVPixelFormatType_32ARGB, attrs as CFDictionary, &buf)
             guard let pb = buf else { continue }
             CVPixelBufferLockBaseAddress(pb, [])
             let ctx = CGContext(data: CVPixelBufferGetBaseAddress(pb),
@@ -139,14 +139,12 @@ public enum FixtureFactory {
             ctx!.setFillColor(UIColor.systemYellow.cgColor)
             ctx!.fillEllipse(in: CGRect(x: w / 2, y: slideY, width: 18, height: 18))
             CVPixelBufferUnlockBaseAddress(pb, [])
-            adaptor.append(pb, withPresentationTime: CMTime(value: CMTimeValue(frame), timescale: CMTimeScale(fps)))
+            input.append(pb, withPresentationTime: CMTime(value: CMTimeValue(frame), timescale: CMTimeScale(fps)))
         }
         input.markAsFinished()
-        writer.finishWriting { }
-        let sem = DispatchSemaphore(value: 0)
-        _ = sem
-        // finishWriting is async; wait
-        while writer.status == .writing { usleep(10_000) }
+        let finishSem = DispatchSemaphore(value: 0)
+        writer.finishWriting { finishSem.signal() }
+        let _ = finishSem.wait(timeout: .now() + 20)
     }
 
     private static func writeImage(url: URL) {
@@ -177,7 +175,7 @@ public enum FixtureFactory {
             AVSampleRateKey: sr,
             AVNumberOfChannelsKey: 1,
         ]
-        let file = try! AVAudioFile(forWriting: fileURL, settings: settings)
+        let file = (try? AVAudioFile(forWriting: fileURL, settings: settings))!
         let buf = AVAudioPCMBuffer(pcmFormat: file.processingFormat, frameCapacity: AVAudioFrameCount(n))!
         buf.frameLength = AVAudioFrameCount(n)
         let data = buf.floatChannelData![0]
