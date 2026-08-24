@@ -80,84 +80,35 @@ public final class ThumbnailService {
     }
 
     /// Filmstrip frames for a clip (used by timeline cells). Cached per (uri,startSrc,len).
-    public func filmstrip(uri: String, sourceRange: TimeRange, duration: KTime, frames: Int, maxSize: CGSize,
-                          completion: @escaping ([CGImage]) -> Void) {
+    public func filmstrip(uri: String, sourceRange: TimeRange, duration: KTime,
+                          frames: Int, maxSize: CGSize) async -> [CGImage] {
         let start = Int64(sourceRange.start.ns)
         let end = Int64(sourceRange.end.ns)
         let base = "strip-\(uri)#\(start)-\(end)-\(frames)"
-        // cached strip bitmap?
-        let cachedRaw: Data? = cache.data(for: base, ext: "strip")
-        if let d = cachedRaw {
-            let bitmaps: [CGImage]? = decodeStrip(d)
-            if let packed = bitmaps {
-                completion(packed)
-                return
-            }
+        if let d = cache.data(for: base, ext: "strip"),
+           let packed = decodeStrip(d) {
+            return packed
         }
-        queue.async(execute: { [weak self] () -> Void in
-            guard let self else { return }
-            let url2 = URL(string: uri)
-            guard let url2 else { return }
-            let asset = AVURLAsset(url: url2)
-            let gen: AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
-            gen.appliesPreferredTrackTransform = true
-            gen.maximumSize = maxSize
-            gen.requestedTimeToleranceBefore = .zero
-            gen.requestedTimeToleranceAfter = CMTime(seconds: 0.05, preferredTimescale: 600)
-            var images: [CGImage] = []
-            for i in 0..<frames {
-                let frac = Float(i + 0.5) / Float(frames)
-                let t = sourceRange.start + sourceRange.duration.scaled(by: frac)
-                if let image = try? gen.copyCGImage(at: t.cmTime, actualTime: nil) {
-                    images.append(image)
-                }
-            }
-            if !images.isEmpty {
-                self.cache.store(encodeStrip(images), base: base, ext: "strip")
-            }
-            DispatchQueue.main.async { completion(images) }
-        })
-    }
-
-    private func encodeStrip(_ images: [CGImage]) -> Data {
-        // pack into one JPEG with each frame at width 32 (fixed height-normalized) row-wise
-        let rowHeight = 36
-        let w = max(8, min(40, Int(images[0].width * rowHeight / images[0].height)))
-        guard let ctx = CGContext(data: nil, width: w * images.count, height: rowHeight,
-                                  bitsPerComponent: 8, bytesPerRow: 0,
-                                  space: CGColorSpaceCreateDeviceRGB(),
-                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else {
-            return Data()
-        }
-        ctx.setFillColor(CGColor(gray: 0, alpha: 1))
-        ctx.fill(CGRect(x: 0, y: 0, width: w * images.count, height: rowHeight))
-        for (i, img) in images.enumerated() {
-            guard let ptr = ctx.data else { continue }
-            _ = ptr
-            ctx.interpolationQuality = .medium
-            ctx.draw(img, in: CGRect(x: i * w, y: 0, width: w, height: rowHeight))
-        }
-        guard let strip = ctx.makeImage() else { return Data() }
-        let ui = UIImage(cgImage: strip)
-        return ui.jpegData(compressionQuality: 0.6) ?? Data()
-    }
-
-    private func decodeStrip(_ data: Data) -> [CGImage]? {
-        guard let ui = UIImage(data: data), let cg = ui.cgImage else { return nil }
-        let w = cg.width, h = cg.height
-        // frame width heuristic: strips are <= 40 px per frame
-        let frameW = Int(round(Float(h) * 0.75))
-        let count = w / max(1, frameW)
-        guard count > 0 else { return nil }
+        guard let url2 = URL(string: uri) else { return [] }
+        let asset = AVURLAsset(url: url2)
+        let gen: AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
+        gen.appliesPreferredTrackTransform = true
+        gen.maximumSize = maxSize
+        gen.requestedTimeToleranceBefore = .zero
+        gen.requestedTimeToleranceAfter = CMTime(seconds: 0.05, preferredTimescale: 600)
         var images: [CGImage] = []
-        for i in 0..<count {
-            if let cropped = cg.cropping(to: CGRect(x: i * frameW, y: 0, width: frameW, height: h)) {
-                images.append(cropped)
+        for i in 0..<frames {
+            let frac = Float(i + 0.5) / Float(frames)
+            let t = sourceRange.start + sourceRange.duration.scaled(by: frac)
+            if let image = try? gen.copyCGImage(at: t.cmTime, actualTime: nil) {
+                images.append(image)
             }
+        }
+        if !images.isEmpty {
+            cache.store(encodeStrip(images), base: base, ext: "strip")
         }
         return images
     }
-}
 
 /// Waveform extraction: reads a mono PCM downmix via AVAssetReader in the background.
 public final class WaveformService {
