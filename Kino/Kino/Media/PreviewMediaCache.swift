@@ -98,7 +98,7 @@ public final class ThumbnailService {
         gen.requestedTimeToleranceAfter = CMTime(seconds: 0.05, preferredTimescale: 600)
         var images: [CGImage] = []
         for i in 0..<frames {
-            let frac = Float(i + 0.5) / Float(frames)
+            let frac = (Float(i) + 0.5) / Float(frames)
             let t = sourceRange.start + sourceRange.duration.scaled(by: frac)
             if let image = try? gen.copyCGImage(at: t.cmTime, actualTime: nil) {
                 images.append(image)
@@ -109,7 +109,43 @@ public final class ThumbnailService {
         }
         return images
     }
+
+    // MARK: strip packing
+
+    private func encodeStrip(_ images: [CGImage]) -> Data {
+        let rowHeight = 36
+        let w = max(8, min(40, Int(images[0].width * rowHeight / images[0].height)))
+        guard let ctx = CGContext(data: nil, width: w * images.count, height: rowHeight,
+                                  bitsPerComponent: 8, bytesPerRow: 0,
+                                  space: CGColorSpaceCreateDeviceRGB(),
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else {
+            return Data()
+        }
+        ctx.setFillColor(CGColor(gray: 0, alpha: 1))
+        ctx.fill(CGRect(x: 0, y: 0, width: w * images.count, height: rowHeight))
+        for (i, img) in images.enumerated() {
+            ctx.interpolationQuality = .medium
+            ctx.draw(img, in: CGRect(x: i * w, y: 0, width: w, height: rowHeight))
+        }
+        guard let strip = ctx.makeImage() else { return Data() }
+        return UIImage(cgImage: strip).jpegData(compressionQuality: 0.6) ?? Data()
+    }
+
+    private func decodeStrip(_ data: Data) -> [CGImage]? {
+        guard let ui = UIImage(data: data), let cg = ui.cgImage else { return nil }
+        let frameW = Int(round(Float(cg.height) * 0.75))
+        let count = cg.width / max(1, frameW)
+        guard count > 0 else { return nil }
+        var images: [CGImage] = []
+        for i in 0..<count {
+            if let cropped = cg.cropping(to: CGRect(x: i * frameW, y: 0, width: frameW, height: cg.height)) {
+                images.append(cropped)
+            }
+        }
+        return images
+    }
 }
+
 
 /// Waveform extraction: reads a mono PCM downmix via AVAssetReader in the background.
 public final class WaveformService {
