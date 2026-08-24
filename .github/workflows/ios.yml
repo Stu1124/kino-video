@@ -82,4 +82,6 @@ jobs:
             Screenshots
             TestResults.xcresult
             DerivedData/Build/Products/Debug-iphonesimulator/Kino.app
+            build.log
+            test.log
           retention-days: 7
