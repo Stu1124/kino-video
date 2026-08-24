@@ -35,6 +35,23 @@ struct EditorScreen: View {
             TimelineView(sync: sync)
                 .frame(height: 300)
         }
+        #if DEBUG
+        .overlay(alignment: .bottomLeading) {
+            if ProcessInfo.processInfo.arguments.contains("--uitest") {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("clips=\(sync.session.project.allClips().count)")
+                    Text("dur=\(String(format: "%.2f", sync.session.project.duration.seconds))s")
+                    Text("sel=\(sync.session.selectedClipID != nil)")
+                    Text("preview=\(preview.ready ? "ready" : "building")")
+                }
+                .font(.system(size: 11, weight: .bold))
+                .foregroundStyle(.white)
+                .padding(8)
+                .background(.red.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
+                .accessibilityIdentifier("editor-diag")
+            }
+        }
+        #endif
         .log("EditorScreen body")
         .background(KinoTheme.backgroundColor)
         .toolbar(.hidden, for: .navigationBar)
@@ -77,6 +94,11 @@ struct EditorScreen: View {
 
     private var topBar: some View {
         HStack(spacing: 12) {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--uitest") {
+            Rectangle().fill(.blue.opacity(0.9)).frame(width: 34, height: 34)
+        }
+        #endif
             Button {
                 if sync.isDirty {
                     confirmingExit = true
