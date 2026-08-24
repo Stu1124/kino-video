@@ -51,6 +51,13 @@
     "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.swiftdeps",
     "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.dia"
   },
+  "/root/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree.dia"
+  },
   "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift": {
     "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.d",
     "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o",

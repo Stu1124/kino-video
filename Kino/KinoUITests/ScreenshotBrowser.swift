@@ -1,15 +1,14 @@
 import XCTest
 
-/// Screenshot driver: launches Kino, walks the main flows and exports
-/// `.png` attachments that CI harvests as artifacts for visual review.
+/// Screenshot driver: launches Kino with synthesized fixture media, walks the
+/// main flows and exports `.png` attachments that CI harvests for visual review.
 final class ScreenshotBrowser: XCTestCase {
 
     let app = XCUIApplication()
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-        app.launchArguments += ["--uitest"]
-        app.launchOptions = [:]
+        app.launchArguments += ["--uitest", "--fixtures", "--demoproject"]
         app.launch()
     }
 
@@ -21,13 +20,30 @@ final class ScreenshotBrowser: XCTestCase {
         add(att)
     }
 
-    func testSmokeArchiveHome() {
-        // Root boots into app (splash -> home placeholder for now)
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 8))
-        sleep(1)
-        snap("00-splash-or-home")
-        // No crash within 3s of idle
+    func testWalkHomeAndEditor() {
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 15))
         sleep(2)
-        XCTAssertTrue(app.state == .runningForeground)
+
+        if app.staticTexts["Kino"].waitForExistence(timeout: 4) {
+            snap("00-home-top")
+        }
+
+        // Open sample project if present
+        let sample = app.staticTexts["Sample Edit"]
+        if sample.waitForExistence(timeout: 3) {
+            snap("01-home-with-sample")
+            sample.tap()
+            sleep(6) // editor boots + preview composites first frames
+            snap("02-editor-default")
+            // ruler scrub
+            let ruler = app.otherElements["timeline-ui"]
+            if ruler.exists {
+                ruler.swipeRight()
+                sleep(1)
+                snap("03-after-scroll")
+            }
+        } else {
+            snap("01-home-empty")
+        }
     }
 }

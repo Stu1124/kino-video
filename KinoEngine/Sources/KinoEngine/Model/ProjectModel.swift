@@ -208,6 +208,7 @@ public struct Clip: Identifiable, Hashable, Codable, Sendable {
     /// Entrance/exit/looping animation preset id.
     public var animation: AnimationRef?
     /// clip-level in/out trim source times are in sourceRange.
+    public var transition: ClipTransition?
     public var text: TextContent?
     public var sticker: StickerContent?
 
@@ -225,6 +226,7 @@ public struct Clip: Identifiable, Hashable, Codable, Sendable {
                 masks: [MaskSpec] = [],
                 keyframes: KeyframeStore = .empty,
                 animation: AnimationRef? = nil,
+                transition: ClipTransition? = nil,
                 text: TextContent? = nil,
                 sticker: StickerContent? = nil) {
         self.id = id
@@ -241,6 +243,7 @@ public struct Clip: Identifiable, Hashable, Codable, Sendable {
         self.masks = masks
         self.keyframes = keyframes
         self.animation = animation
+        self.transition = transition
         self.text = text
         self.sticker = sticker
     }
@@ -258,6 +261,18 @@ public struct AnimationRef: Hashable, Codable, Sendable {
     /// Fade/scale start offset per style.
     public init(phase: Phase, presetID: String, duration: KTime) {
         self.phase = phase; self.presetID = presetID; self.duration = duration
+    }
+}
+
+/// Transition placed at this clip's END boundary (applies against the next clip).
+public struct ClipTransition: Hashable, Codable, Sendable {
+    public var kind: String        // matches KinoTransition.Kind raw values
+    public var duration: KTime
+    public var direction: Float    // 1 or -1
+    public init(kind: String, duration: KTime, direction: Float = 1) {
+        self.kind = kind
+        self.duration = duration
+        self.direction = direction
     }
 }
 

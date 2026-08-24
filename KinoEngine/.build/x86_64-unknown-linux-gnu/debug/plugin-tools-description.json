@@ -56,6 +56,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
         },
         {
@@ -78,6 +82,7 @@
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Keyframes.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o"
       ],
       "otherArguments" : [
@@ -145,6 +150,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o"
         },
         {
@@ -161,6 +170,7 @@
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift",
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
       ],
       "tempsPath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build",
@@ -455,6 +465,7 @@
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift",
       "-I",
       "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules",
@@ -731,6 +742,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
         }
       ],
@@ -806,6 +821,10 @@
         {
           "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/RenderTree.swift.o"
         },
         {
           "kind" : "file",

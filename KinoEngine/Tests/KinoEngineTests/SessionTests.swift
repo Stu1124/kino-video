@@ -49,7 +49,7 @@ final class SessionTests: XCTestCase {
     func testTrimLeftRipple() throws {
         var p = makeMainProject()
         let id = p.tracks[0].clips[0].id
-        try EditOps.trimLeft(id, bySource: KTime(seconds: 1), ripple: true, &p)
+        _ = try EditOps.trimLeft(id, bySource: KTime(seconds: 1), ripple: true, &p)
         let clips = p.tracks[0].clips
         XCTAssertEqual(clips.count, 2)
         XCTAssertEqual(clips[0].sourceRange.start.seconds, 1, accuracy: 0.001)
@@ -61,7 +61,7 @@ final class SessionTests: XCTestCase {
     func testTrimRight() throws {
         var p = makeMainProject()
         let id = p.tracks[0].clips[0].id
-        try EditOps.trimRight(id, bySource: KTime(seconds: -1), ripple: true, &p)
+        _ = try EditOps.trimRight(id, bySource: KTime(seconds: -1), ripple: true, &p)
         let a = p.tracks[0].clips[0]
         XCTAssertEqual(a.sourceRange.end.seconds, 4, accuracy: 0.001)
         // b slides left by 1
@@ -112,7 +112,7 @@ final class SessionTests: XCTestCase {
         ])
         c.keyframes = KeyframeStore(channels: ["scale": ks])
         p.tracks[0].clips[0] = c
-        try EditOps.splitClip(id, at: KTime(seconds: 2), &p)
+        _ = try EditOps.splitClip(id, at: KTime(seconds: 2), &p)
         let left = p.tracks[0].clips[0]
         let right = p.tracks[0].clips[1]
         let lk = left.keyframes.channels["scale"]!.keyframes
@@ -138,13 +138,13 @@ final class SessionTests: XCTestCase {
 
         let clipID = session.project.tracks[0].clips[0].id
         session.perform("trim") { p in
-            try! EditOps.trimRight(clipID, bySource: KTime(seconds: -1), ripple: false, &p)
+            try! _ = EditOps.trimRight(clipID, bySource: KTime(seconds: -1), ripple: false, &p)
         }
         XCTAssertTrue(session.canUndo)
         XCTAssertEqual(session.project.tracks[0].clips[0].sourceRange.end.seconds, 4, accuracy: 0.001)
 
         session.perform("split") { p in
-            try! EditOps.splitClip(clipID, at: KTime(seconds: 2), &p)
+            try! _ = EditOps.splitClip(clipID, at: KTime(seconds: 2), &p)
         }
         XCTAssertEqual(session.project.tracks[0].clips.count, 3)
 

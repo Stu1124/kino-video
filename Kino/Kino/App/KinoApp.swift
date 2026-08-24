@@ -1,4 +1,6 @@
-import SwiftUI
+#if DEBUG
+import Foundation
+#endif
 
 @main
 struct KinoApp: App {
@@ -16,12 +18,23 @@ struct RootView: View {
         ZStack {
             KinoTheme.backgroundColor.ignoresSafeArea()
             if bootstrapped {
-                PlaceholderHome()
+                NavigationView {
+                    HomeScreen()
+                }
+                .navigationViewStyle(.stack)
             } else {
                 SplashView()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                            withAnimation(.easeOut(duration: 0.3)) { bootstrapped = true }
+                        #if DEBUG
+                        if ProcessInfo.processInfo.arguments.contains("--fixtures") {
+                            _ = FixtureFactory.ensure()
+                        }
+                        if ProcessInfo.processInfo.arguments.contains("--demoproject") {
+                            FixtureFactory.ensure()
+                        }
+                        #endif
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            withAnimation(.easeOut(duration: 0.25)) { bootstrapped = true }
                         }
                     }
             }
@@ -45,26 +58,3 @@ struct SplashView: View {
         }
     }
 }
-
-/// Temporary space until the home screen lands; replaced in next milestone.
-struct PlaceholderHome: View {
-    var body: some View {
-        VStack(spacing: 20) {
-            Text("Kino Studio")
-                .font(.system(size: 28, weight: .semibold, design: .rounded))
-                .foregroundStyle(.white)
-            Image(systemName: "clapperboard")
-                .font(.system(size: 34))
-                .foregroundStyle(.secondary)
-            Text("Engine bootstrap running")
-                .font(.system(size: 13))
-                .foregroundStyle(.secondary)
-        }
-    }
-}
-
-#if DEBUG
-extension KinoApp {
-    static var isUITest: Bool { ProcessInfo.processInfo.arguments.contains("--uitest") }
-}
-#endif

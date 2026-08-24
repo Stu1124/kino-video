@@ -309,7 +309,6 @@ public enum EditOps {
     /// Trim the clip's right edge in source time; `ripple` closes the following gap.
     public static func trimRight(_ id: UUID, bySource delta: KTime, ripple: Bool, _ p: inout KinoProject) throws -> Bool {
         guard let (ti, _, clip) = locate(id, p) else { throw EditError.notFound }
-        let srcLen = clip.sourceRange.duration
         let newSourceEnd = KTime.min(KTime.max(clip.sourceRange.end + delta, clip.sourceRange.start + KTime(milliseconds: 1)),
                                      clip.sourceRange.end)
         let applied = newSourceEnd - clip.sourceRange.end
@@ -384,7 +383,7 @@ public enum EditOps {
     /// Auto-collapse gaps between adjacent clips on the main track (ripple delete style).
     public static func closeGaps(mainTrackIndex: Int, _ p: inout KinoProject) {
         guard mainTrackIndex < p.tracks.count else { return }
-        var clips = p.tracks[mainTrackIndex].clips.sorted { $0.start.ns < $1.start.ns }
+        let clips = p.tracks[mainTrackIndex].clips.sorted { $0.start.ns < $1.start.ns }
         if clips.isEmpty { return }
         let firstStart = clips[0].start
         var current = firstStart

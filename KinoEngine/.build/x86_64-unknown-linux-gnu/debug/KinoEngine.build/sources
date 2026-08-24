@@ -5,4 +5,5 @@
 /root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift
 /root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift
 /root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift
+/root/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift
 /root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift

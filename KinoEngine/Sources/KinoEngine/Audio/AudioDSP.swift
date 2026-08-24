@@ -200,7 +200,6 @@ public enum SilenceDetector {
         guard samples.count > hop else { return [] }
         var ranges: [TimeRange] = []
         var i = 0
-        let hopSec = Double(hop) / sampleRate
         var segStart: Double? = nil
         while i + hop <= samples.count {
             var e: Double = 0

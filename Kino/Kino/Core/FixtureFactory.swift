@@ -1,0 +1,191 @@
+#if DEBUG
+import AVFoundation
+import Foundation
+import UIKit
+import KinoEngine
+
+/// Synthesizes media + a sample project on simulator (UI tests, demos).
+/// Never runs on a real device unless --fixtures is passed at launch.
+public enum FixtureFactory {
+
+    public struct Fixtures {
+        public var videoA: URL
+        public var videoB: URL
+        public var image: URL
+        public var audio: URL
+        public var projectID: UUID
+    }
+
+    public static func ensure() -> Fixtures? {
+        let fm = FileManager.default
+        let base = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("Fixtures", isDirectory: true)
+        try? fm.createDirectory(at: base, withIntermediateDirectories: true)
+
+        let a = base.appendingPathComponent("fixture-a.mov")
+        let b = base.appendingPathComponent("fixture-b.mov")
+        let img = base.appendingPathComponent("fixture-img.jpg")
+        let wav = base.appendingPathComponent("fixture-tone.wav")
+
+        if !fm.fileExists(atPath: a.path) { writeVideo(url: a, seconds: 5, color: UIColor.systemMint, label: "SUNLIGHT") }
+        if !fm.fileExists(atPath: b.path) { writeVideo(url: b, seconds: 4, color: UIColor.systemOrange, label: "WARM") }
+        if !fm.fileExists(atPath: img.path) { writeImage(url: img) }
+        if !fm.fileExists(atPath: wav.path) { writeTone(url: wav, seconds: 4) }
+
+        let store = ProjectStore()
+        let sampleID = base.appendingPathComponent("fixture-project.json")
+        if !fm.fileExists(atPath: sampleID.path) {
+            fixtures = nil
+            var project = KinoProject(meta: .init(name: "Sample Edit"))
+            project.assets = [
+                MediaAsset(uri: a.absoluteString, kind: .video, name: "Sunlight",
+                           resolution: KVec2(640, 360), duration: KTime(seconds: 5),
+                           fps: 30, audioTrackPresent: false),
+                MediaAsset(uri: b.absoluteString, kind: .video, name: "Warm",
+                           resolution: KVec2(640, 360), duration: KTime(seconds: 4),
+                           fps: 30, audioTrackPresent: false),
+                MediaAsset(uri: img.absoluteString, kind: .image, name: "Cover",
+                           resolution: KVec2(800, 600)),
+                MediaAsset(uri: wav.absoluteString, kind: .audio, name: "Tone",
+                           duration: KTime(seconds: 4), audioTrackPresent: true),
+            ]
+            let v1 = Clip(kind: .video, assetID: project.assets[0].id, name: "Sunlight", start: .zero,
+                          sourceRange: TimeRange(start: .zero, duration: KTime(seconds: 5)),
+                          speed: SpeedSpec(rate: 1))
+            project.tracks[0].clips = [v1]
+            project.tracks.append(Track(kind: .audio, name: "Music", clips: [
+                Clip(kind: .audio, assetID: project.assets[3].id, name: "Tone", start: .zero,
+                     sourceRange: TimeRange(start: .zero, duration: KTime(seconds: 4)),
+                     audio: AudioSpec(volume: 0.5)),
+            ]))
+            project.tracks.append(Track(kind: .text, name: "Text", clips: [
+                Clip(kind: .text, name: "Title", start: KTime(milliseconds: 500),
+                     sourceRange: TimeRange(start: .zero, duration: KTime(seconds: 3)),
+                     text: {
+                         var t = TextContent(string: "Hello Kino")
+                         t.fontSize = 0.06
+                         return t
+                     }()),
+            ]))
+            try? store.save(project)
+            fixtures = project.meta.id
+        } else {
+            fixtures = try? store.load(UUID(uuidString: "00000000-0000-0000-0000-000000000001"))?.meta.id
+        }
+        return Fixtures(videoA: a, videoB: b, image: img, audio: wav, projectID: fixtures ?? UUID())
+    }
+
+    public static var fixtures: UUID?
+
+    // MARK: synth media
+
+    private static func writeVideo(url: URL, seconds: Double, color: UIColor, label: String) {
+        let fps = 30
+        let w = 640, h = 360
+        try? FileManager.default.removeItem(at: url)
+        let writer = try! AVAssetWriter(outputURL: url, fileType: .mov)
+        let settings: [String: Any] = [
+            AVVideoCodecKey: AVVideoCodecType.h264,
+            AVVideoWidthKey: w,
+            AVVideoHeightKey: h,
+        ]
+        let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings)
+        let attrs: [String: Any] = [
+            kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32ARGB,
+            kCVPixelBufferWidthKey as String: w,
+            kCVPixelBufferHeightKey as String: h,
+        ]
+        let adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: attrs)
+        writer.add(input)
+        writer.startWriting()
+        writer.startSession(atSourceTime: .zero)
+
+        let total = Int(seconds * Double(fps))
+        for frame in 0..<total {
+            while !input.isReadyForMoreMediaData { usleep(1000) }
+            var buf: CVPixelBuffer?
+            CVPixelBufferPoolCreatePixelBuffer(nil, adaptor.pixelBufferPool!, &buf)
+            guard let pb = buf else { continue }
+            CVPixelBufferLockBaseAddress(pb, [])
+            let ctx = CGContext(data: CVPixelBufferGetBaseAddress(pb),
+                                width: w, height: h, bitsPerComponent: 8,
+                                bytesPerRow: CVPixelBufferGetBytesPerRow(pb),
+                                space: CGColorSpaceCreateDeviceRGB(),
+                                bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue | CGBitmapInfo.byteOrder32Little.rawValue)
+            // animated gradient panel + label
+            let phase = CGFloat(frame) / CGFloat(total)
+            ctx!.setFillColor(color.withAlphaComponent(0.8).cgColor)
+            ctx!.fill(CGRect(x: 0, y: 0, width: w, height: h))
+            let grad = CGGradient(colorsSpace: nil, colors: [color.withAlphaComponent(1).cgColor, UIColor.white.withAlphaComponent(0.35).cgColor] as CFArray, locations: [0, 1])!
+            ctx!.drawLinearGradient(grad, start: CGPoint(x: 0, y: phase * CGFloat(h)), end: CGPoint(x: CGFloat(w), y: (1 + phase) * CGFloat(h)), options: [])
+            let para = NSMutableParagraphStyle()
+            para.alignment = .center
+            let attrsText: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 54, weight: .bold),
+                .foregroundColor: UIColor.white,
+                .paragraphStyle: para,
+            ]
+            let str = "\(label)\n\(frame)"
+            NSAttributedString(string: str, attributes: attrsText).draw(in: CGRect(x: 0, y: h / 2 - 70, width: w, height: 120))
+            // motion bar
+            ctx!.setFillColor(UIColor.white.cgColor)
+            ctx!.fill(CGRect(x: CGFloat(frame % w), y: 0, width: 24, height: 24 + CGFloat(frame % h) * 0.0))
+            // circle marker moving
+            ctx!.setFillColor(UIColor.systemBlue.cgColor)
+            ctx!.fillEllipse(in: CGRect(x: CGFloat((frame * 7) % w), y: h / 2, width: 30, height: 30))
+            ctx!.setFillColor(UIColor.systemYellow.cgColor)
+            ctx!.fillEllipse(in: CGRect(x: CGFloat(w) / 2, y: (CGFloat(frame * 13) % CGFloat(h)), width: 18, height: 18))
+            CVPixelBufferUnlockBaseAddress(pb, [])
+            adaptor.append(pb, withPresentationTime: CMTime(value: CMTimeValue(frame), timescale: CMTimeScale(fps)))
+        }
+        input.markAsFinished()
+        writer.finishWriting { }
+        let sem = DispatchSemaphore(value: 0)
+        _ = sem
+        // finishWriting is async; wait
+        while writer.status == .writing { usleep(10_000) }
+    }
+
+    private static func writeImage(url: URL) {
+        let size = CGSize(width: 800, height: 600)
+        let r = UIGraphicsImageRenderer(size: size)
+        let img = r.image { ctx in
+            let colors = [UIColor.systemTeal.cgColor, UIColor.systemBlue.cgColor] as CFArray
+            let grad = CGGradient(colorsSpace: nil, colors: colors, locations: nil)!
+            ctx.cgContext.drawLinearGradient(grad, start: .zero, end: CGPoint(x: size.width, y: size.height), options: [])
+            let para = NSMutableParagraphStyle()
+            para.alignment = .center
+            ("KINO" as NSString).draw(at: CGPoint(x: 300, y: 260), withAttributes: [
+                .font: UIFont.systemFont(ofSize: 64, weight: .heavy),
+                .foregroundColor: UIColor.white,
+                .paragraphStyle: para,
+            ])
+        }
+        try? img.jpegData(compressionQuality: 0.9)?.write(to: url)
+    }
+
+    private static func writeTone(url: URL, seconds: Double) {
+        let sr = 44100.0
+        let n = Int(sr * seconds)
+        let fileURL = url
+        try? FileManager.default.removeItem(at: fileURL)
+        let settings: [String: Any] = [
+            AVFormatIDKey: kAudioFormatMPEG4AAC,
+            AVSampleRateKey: sr,
+            AVNumberOfChannelsKey: 1,
+        ]
+        let file = try! AVAudioFile(forWriting: fileURL, settings: settings)
+        let buf = AVAudioPCMBuffer(pcmFormat: file.processingFormat, frameCapacity: AVAudioFrameCount(n))!
+        buf.frameLength = AVAudioFrameCount(n)
+        let data = buf.floatChannelData![0]
+        for i in 0..<n {
+            let t = Double(i) / sr
+            let beat = sin(2 * .pi * 440 * t)
+            let melody = sin(2 * .pi * 220 * t) * 0.5
+            let env = (1 + sin(2 * .pi * 0.5 * t)) * 0.5
+            data[i] = Float((beat + melody) * 0.22 * env)
+        }
+        try? file.write(from: buf)
+    }
+}
+#endif
