@@ -39,8 +39,17 @@ final class ScreenshotBrowser: XCTestCase {
         sample.tap()
 
         // Editor boots; preview composites
-        sleep(4)
-        XCTAssertTrue(app.buttons["export-button"].waitForExistence(timeout: 20))
+        sleep(5)
+        snap("editor-after-tap")
+        if !app.buttons["export-button"].waitForExistence(timeout: 15) {
+            let tree = app.debugDescription
+            let att = XCTAttachment(string: tree)
+            att.name = "editor-accessibility-tree"
+            att.lifetime = .keepAlways
+            add(att)
+            XCTFail("export-button missing; tree captured")
+            return
+        }
         snap("editor-default")
 
         // Timeline exists: scrub a bit
