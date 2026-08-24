@@ -142,6 +142,44 @@ public struct TextContent: Hashable, Codable, Sendable {
     public var uppercase: Bool
     public var curvedPath: [KVec2]?        // optional arc/curve lettering (empty = none)
 
+    public init(string: String = "Text",
+                fontName: String = "Default",
+                fontSize: Float = 0.07,
+                fontWeight: Float = 0.5,
+                colorHex: UInt32 = 0xFFFFFFFF,
+                opacity: Float = 1,
+                alignment: Int = 1,
+                strokeColorHex: UInt32? = nil,
+                strokeWidth: Float = 0,
+                shadow: Bool = false,
+                shadowColorHex: UInt32? = nil,
+                shadowRadius: Float = 0,
+                backgroundColorHex: UInt32? = nil,
+                backgroundPadding: Float = 0,
+                letterSpacing: Float = 0,
+                lineSpacing: Float = 0.12,
+                uppercase: Bool = false,
+                curvedPath: [KVec2]? = nil) {
+        self.string = string
+        self.fontName = fontName
+        self.fontSize = fontSize
+        self.fontWeight = fontWeight
+        self.colorHex = colorHex
+        self.opacity = opacity
+        self.alignment = alignment
+        self.strokeColorHex = strokeColorHex
+        self.strokeWidth = strokeWidth
+        self.shadow = shadow
+        self.shadowColorHex = shadowColorHex
+        self.shadowRadius = shadowRadius
+        self.backgroundColorHex = backgroundColorHex
+        self.backgroundPadding = backgroundPadding
+        self.letterSpacing = letterSpacing
+        self.lineSpacing = lineSpacing
+        self.uppercase = uppercase
+        self.curvedPath = curvedPath
+    }
+
     public static let defaultStyle = TextContent(
         string: "Text",
         fontName: "Default",

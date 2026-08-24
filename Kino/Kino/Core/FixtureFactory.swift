@@ -129,12 +129,13 @@ public enum FixtureFactory {
             NSAttributedString(string: str, attributes: attrsText).draw(in: CGRect(x: 0, y: h / 2 - 70, width: w, height: 120))
             // motion bar
             ctx!.setFillColor(UIColor.white.cgColor)
-            ctx!.fill(CGRect(x: CGFloat(frame % w), y: 0, width: 24, height: 24 + CGFloat(frame % h) * 0.0))
-            // circle marker moving
+            let slideX = frame * 7 % w
+            let slideY = frame * 13 % h
+            ctx!.fill(CGRect(x: slideX, y: 0, width: 24, height: 24))
             ctx!.setFillColor(UIColor.systemBlue.cgColor)
-            ctx!.fillEllipse(in: CGRect(x: CGFloat((frame * 7) % w), y: h / 2, width: 30, height: 30))
+            ctx!.fillEllipse(in: CGRect(x: slideX, y: h / 2, width: 30, height: 30))
             ctx!.setFillColor(UIColor.systemYellow.cgColor)
-            ctx!.fillEllipse(in: CGRect(x: CGFloat(w) / 2, y: (CGFloat(frame * 13) % CGFloat(h)), width: 18, height: 18))
+            ctx!.fillEllipse(in: CGRect(x: w / 2, y: slideY, width: 18, height: 18))
             CVPixelBufferUnlockBaseAddress(pb, [])
             adaptor.append(pb, withPresentationTime: CMTime(value: CMTimeValue(frame), timescale: CMTimeScale(fps)))
         }

@@ -333,8 +333,8 @@ struct BoxedOverlayView: View {
             let canvas2 = KVec2(Float(size.width), Float(size.height))
             let scaleBase = KFitMath.fillScale(asset: frame.assetSize ?? KVec2(1, 1),
                                                canvas: canvas2) * frame.transform.scale
-            let cw = (frame.assetSize?.x ?? 1) * scaleBase
-            let ch = (frame.assetSize?.y ?? 1) * scaleBase
+            let cw = CGFloat(frame.assetSize?.x ?? 1) * scaleBase
+            let ch = CGFloat(frame.assetSize?.y ?? 1) * scaleBase
             let cx = frame.transform.center.x * size.width
             let cy = frame.transform.center.y * size.height
             ZStack {

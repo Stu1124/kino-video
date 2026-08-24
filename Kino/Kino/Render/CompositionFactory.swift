@@ -149,7 +149,7 @@ final class CompositionFactory {
                     let boundary = clip.timelineRange.end
                     if time >= boundary - t.duration && time <= boundary {
                         let dir: Float = t.direction
-                        return KinoTransition.Resolved(kind: t.kind, duration: t.duration, direction: dir)
+                        return KinoTransition.Resolved(kind: KinoTransition.Kind(rawValue: t.kind) ?? .dissolve, duration: t.duration, direction: dir)
                     }
                 }
             }
