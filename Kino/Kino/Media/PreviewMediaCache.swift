@@ -58,7 +58,7 @@ public final class ThumbnailService {
             completion(img)
             return
         }
-        queue.async { [weak self] () -> Void in
+        Task.detached(priority: .userInitiated) { [weak self] () -> Void in
             guard let self else { return }
             let url2 = URL(string: uri) ?? URL(string: "file:///tmp/x")!
             guard url2.path.isEmpty == false else { return }
