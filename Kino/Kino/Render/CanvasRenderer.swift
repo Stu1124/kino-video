@@ -11,7 +11,7 @@ final class CanvasRenderer {
 
     static let shared = CanvasRenderer()
 
-    private let ctx = CIContext(options: [.cacheIntermediates: true])
+    let ctx = CIContext(options: [.cacheIntermediates: true])
 
     /// Render a single layer into canvas space.
     /// `inRect` is the canvas pixel extent (origin 0,0, size W*scale, H*scale).

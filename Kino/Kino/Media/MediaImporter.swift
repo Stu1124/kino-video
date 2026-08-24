@@ -62,7 +62,7 @@ public final class MediaImporter: ObservableObject {
         case .video:
             let resources = PHAssetResource.assetResources(for: ph)
             guard let resource = resources.first else { return nil }
-            let ext = resource.uniformTypeIdentifier?.split(separator: ".").last.map(String.init) ?? "mov"
+            let ext = resource.uniformTypeIdentifier.map { ($0 as NSString).pathExtension.isEmpty ? "mov" : ($0 as NSString).pathExtension } ?? "mov"
             name = "asset-\(UUID().uuidString.prefix(12)).\(ext)"
             target = libraryURL.appendingPathComponent(name)
             try await copyResource(resource, to: target!)
