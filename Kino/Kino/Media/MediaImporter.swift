@@ -87,7 +87,7 @@ public final class MediaImporter: ObservableObject {
         } else {
             let size = try? await imageSize(url: url)
             asset = MediaAsset(uri: url.absoluteString, kind: .image, name: "Image",
-                               resolution: size.flatMap { KVec2($0.width, $0.height) })
+                               resolution: size.flatMap { KVec2(Float($0.width), Float($0.height)) })
         }
         return asset
     }
@@ -133,13 +133,12 @@ public final class MediaImporter: ObservableObject {
 
     private func imageSize(url: URL) async throws -> CGSize {
         try await Task.detached {
-            let src = CGImageSourceCreateWithURL(url as CFURL, nil)
-            guard let img = CGImageSourceCreateImageAtIndex(src!, 0, [kCGImageSourceCreateThumbnailWithTransform: true] as CFDictionary)?,
-                  let props = CGImageSourceCopyPropertiesAtIndex(src!, 0, nil) as? [CFString: Any] else {
+            guard let src = CGImageSourceCreateWithURL(url as CFURL, nil),
+                  let props = CGImageSourceCopyPropertiesAtIndex(src, 0, nil) as? [CFString: Any] else {
                 return CGSize(width: 1920, height: 1920)
             }
-            let w = props[kCGImagePropertyPixelWidth] as? CGFloat ?? 1920
-            let h = props[kCGImagePropertyPixelHeight] as? CGFloat ?? 1920
+            let w = (props[kCGImagePropertyPixelWidth] as? CGFloat) ?? 1920
+            let h = (props[kCGImagePropertyPixelHeight] as? CGFloat) ?? 1920
             return CGSize(width: w, height: h)
         }.value
     }

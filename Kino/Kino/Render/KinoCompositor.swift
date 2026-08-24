@@ -186,9 +186,16 @@ final class KinoCompositor: NSObject, AVVideoCompositing {
                 canvas = self.blendOver(canvas, layer: rendered, blend: layer.transform.blend)
             }
 
-            guard let dst = self.context?.newPixelBuffer() ?? request.renderContext.newPixelBuffer() else {
+            let dst: CVPixelBuffer
+            if let buffered = self.context?.newPixelBuffer() {
+                dst = buffered
+            } else if let buffered = request.renderContext.newPixelBuffer() {
+                dst = buffered
+            } else {
                 return
             }
+            // resolve optional: render context may be nil before first render
+            guard finalBufferAvailable(dst) else { return }
             let bounds = CGRect(origin: .zero, size: renderSize)
             self.renderer.ctx.render(canvas.cropped(to: bounds), to: dst, bounds: bounds, colorSpace: CGColorSpaceCreateDeviceRGB())
             request.finish(withComposedVideoFrame: dst)

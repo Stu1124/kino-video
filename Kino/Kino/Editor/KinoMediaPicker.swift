@@ -31,9 +31,8 @@ struct KinoMediaPicker: UIViewControllerRepresentable {
             for result in results {
                 if result.assetIdentifier != nil {
                     ids.append(result.assetIdentifier!)
-                } else if let itemProvider = result.itemProvider {
-                    // fallback: transfer video/image via temporary URL
-                    ids.append(itemProvider.registeredTypeIdentifiers.first ?? "")
+                } else {
+                    ids.append(result.itemProvider.registeredTypeIdentifiers.first ?? "")
                 }
             }
             DispatchQueue.main.async {
