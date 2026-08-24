@@ -335,8 +335,8 @@ struct BoxedOverlayView: View {
             let scaleBase = CGFloat(fitScale * frame.transform.scale)
             let cw = CGFloat(frame.assetSize?.x ?? 1) * scaleBase
             let ch = CGFloat(frame.assetSize?.y ?? 1) * scaleBase
-            let cx = frame.transform.center.x * size.width
-            let cy = frame.transform.center.y * size.height
+            let cx = CGFloat(frame.transform.center.x) * size.width
+            let cy = CGFloat(frame.transform.center.y) * size.height
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .stroke(KinoTheme.accent, style: StrokeStyle(lineWidth: 1.5, dash: [6, 4]))
