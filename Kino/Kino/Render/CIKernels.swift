@@ -18,24 +18,23 @@ final class CIKernels {
     private let punchMono: CIKernel
 
     private init() {
-        let lib = CIKernel.shared
-        _ = lib
-
         func kernel(_ source: String) -> CIKernel {
             CIKernel(source: source) ?? CIKernel(source: """
             kernel vec4 fallback(sampler src) { return sample(src, samplerCoord(src)); }
             """)!
         }
-
-        chromaKey = kernel(kChromaKey)
-        rgbSplit = kernel(kRgbSplit)
-        slices = kernel(kSlices)
-        staticNoise = kernel(kStatic)
-        vhs = kernel(kVHS)
-        edgeXray = kernel(kXRay)
-        lensFlare = kernel(kFlare)
-        smear = kernel(kSmear)
-        punchMono = kernel(kPunchMono)
+        let fallback = CIKernel(source: """
+        kernel vec4 fallback(sampler src) { return sample(src, samplerCoord(src)); }
+        """)!
+        chromaKey = CIKernel(source: Self.kChromaKey) ?? fallback
+        rgbSplit = CIKernel(source: Self.kRgbSplit) ?? fallback
+        slices = CIKernel(source: Self.kSlices) ?? fallback
+        staticNoise = CIKernel(source: Self.kStatic) ?? fallback
+        vhs = CIKernel(source: Self.kVHS) ?? fallback
+        edgeXray = CIKernel(source: Self.kXRay) ?? fallback
+        lensFlare = CIKernel(source: Self.kFlare) ?? fallback
+        smear = CIKernel(source: Self.kSmear) ?? fallback
+        punchMono = CIKernel(source: Self.kPunchMono) ?? fallback
     }
 
     // MARK: lookups
