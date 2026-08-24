@@ -153,7 +153,7 @@ final class KinoCompositor: NSObject, AVVideoCompositing {
         renderQueue.async {
             guard let instruction = request.videoCompositionInstruction as? KinoRenderInstruction else {
                 // no instruction → deliver nothing
-                request.finish(withComposedVideoFrame: request.renderContext.pixelBuffer(nil))
+                return
                 return
             }
 
@@ -195,7 +195,6 @@ final class KinoCompositor: NSObject, AVVideoCompositing {
                 return
             }
             // resolve optional: render context may be nil before first render
-            guard finalBufferAvailable(dst) else { return }
             let bounds = CGRect(origin: .zero, size: renderSize)
             self.renderer.ctx.render(canvas.cropped(to: bounds), to: dst, bounds: bounds, colorSpace: CGColorSpaceCreateDeviceRGB())
             request.finish(withComposedVideoFrame: dst)
@@ -227,11 +226,5 @@ final class KinoCompositor: NSObject, AVVideoCompositing {
         case .color: return layer.applyingFilter("CIColorBlendMode", parameters: [kCIInputBackgroundImageKey: base])
         case .luminosity: return layer.applyingFilter("CILuminosityBlendMode", parameters: [kCIInputBackgroundImageKey: base])
         }
-    }
-}
-
-private extension AVVideoCompositionRenderContext {
-    func pixelBuffer(_ _: Any?) -> CVPixelBuffer? {
-        newPixelBuffer()
     }
 }
