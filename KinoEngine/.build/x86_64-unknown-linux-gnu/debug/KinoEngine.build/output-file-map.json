@@ -2,6 +2,13 @@
   "": {
     "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/primary.swiftdeps"
   },
+  "/root/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP.dia"
+  },
   "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift": {
     "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.d",
     "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o",
@@ -36,6 +43,13 @@
     "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel~partial.swiftmodule",
     "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.swiftdeps",
     "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.dia"
+  },
+  "/root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.dia"
   },
   "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift": {
     "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.d",

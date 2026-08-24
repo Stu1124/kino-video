@@ -181,7 +181,7 @@ public enum KClipSeries: Hashable, Codable, Sendable {
 // MARK: - Clip
 
 public struct Clip: Identifiable, Hashable, Codable, Sendable {
-    public let id: UUID
+    public var id: UUID
     public var name: String
     public var kind: KClipKind
     /// Asset handle; nil for text/sticker.

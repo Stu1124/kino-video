@@ -73,7 +73,8 @@ enum ExactMulDiv {
         guard let (q, _) = p.divided(by: uc) else { return nil }
         if neg {
             if q > (1 << 63) { return nil }
-            return q == (1 << 63) ? Int64.min : -Int64(q)
+            if q == (1 << 63) { return nil } // +2^63 not representable
+            return -Int64(q)
         }
         if q > UInt64(Int64.max) { return nil }
         return Int64(q)

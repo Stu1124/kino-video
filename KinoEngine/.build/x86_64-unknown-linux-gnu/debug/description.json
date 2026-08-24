@@ -28,6 +28,10 @@
       "inputs" : [
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift"
         },
         {
@@ -48,6 +52,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
         },
         {
@@ -63,11 +71,13 @@
       "moduleName" : "KinoEngine",
       "moduleOutputPath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule",
       "objects" : [
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Effects.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KGeometry.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Keyframes.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.swift.o",
         "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o"
       ],
       "otherArguments" : [
@@ -107,6 +117,10 @@
       "outputs" : [
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o"
         },
         {
@@ -127,6 +141,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o"
         },
         {
@@ -136,11 +154,13 @@
       ],
       "prepareForIndexing" : false,
       "sources" : [
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift",
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift",
         "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
       ],
       "tempsPath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build",
@@ -325,7 +345,15 @@
       "inputs" : [
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Tests/KinoEngineTests/AudioDSPTests.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Tests/KinoEngineTests/SessionTests.swift"
         },
         {
           "kind" : "file",
@@ -344,7 +372,9 @@
       "moduleName" : "KinoEngineTests",
       "moduleOutputPath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule",
       "objects" : [
-        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o"
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -382,7 +412,15 @@
       "outputs" : [
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.swift.o"
         },
         {
           "kind" : "file",
@@ -391,7 +429,9 @@
       ],
       "prepareForIndexing" : false,
       "sources" : [
-        "/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift"
+        "/root/kino-video/KinoEngine/Tests/KinoEngineTests/AudioDSPTests.swift",
+        "/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift",
+        "/root/kino-video/KinoEngine/Tests/KinoEngineTests/SessionTests.swift"
       ],
       "tempsPath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build",
       "wholeModuleOptimization" : false
@@ -408,11 +448,13 @@
       "-package-name",
       "kinoengine",
       "-c",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift",
       "-I",
       "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules",
@@ -546,7 +588,9 @@
       "-package-name",
       "kinoengine",
       "-c",
+      "/root/kino-video/KinoEngine/Tests/KinoEngineTests/AudioDSPTests.swift",
       "/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift",
+      "/root/kino-video/KinoEngine/Tests/KinoEngineTests/SessionTests.swift",
       "-I",
       "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules",
       "-target",
@@ -605,7 +649,15 @@
       "inputs" : [
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.swift.o"
         }
       ],
       "outputs" : [
@@ -651,6 +703,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift"
         },
         {
@@ -668,6 +724,10 @@
         {
           "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift"
         },
         {
           "kind" : "file",
@@ -714,6 +774,14 @@
         {
           "kind" : "virtual",
           "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/AudioDSP.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/EditorSession.swift.o"
         },
         {
           "kind" : "file",
@@ -765,11 +833,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o"
         },
         {
           "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KinoEngineTests.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.swift.o"
         }
       ],
       "outputFilePath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.product/Objects.LinkFileList"
@@ -783,7 +859,15 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Tests/KinoEngineTests/AudioDSPTests.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Tests/KinoEngineTests/SessionTests.swift"
         }
       ],
       "outputFilePath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/sources"

@@ -2,11 +2,25 @@
   "": {
     "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/primary.swiftdeps"
   },
+  "/root/kino-video/KinoEngine/Tests/KinoEngineTests/AudioDSPTests.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/AudioDSPTests.dia"
+  },
   "/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift": {
     "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.d",
     "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o",
     "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests~partial.swiftmodule",
     "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swiftdeps",
     "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.dia"
+  },
+  "/root/kino-video/KinoEngine/Tests/KinoEngineTests/SessionTests.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/SessionTests.dia"
   }
 }
