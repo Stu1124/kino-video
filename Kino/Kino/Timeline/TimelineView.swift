@@ -37,7 +37,6 @@ struct TimelineView: View {
                 .coordinateSpace(name: "timeline")
                 .onAppear {
                     contentWidth = max(geo.size.width * 1.4, CGFloat(max(projectDuration, KTime(seconds: 10)).seconds) * ppx)
-                    initialScroll()
                 }
             }
         }
@@ -87,7 +86,7 @@ struct TimelineView: View {
             ForEach(Array(sync.session.project.tracks.enumerated()), id: \.element.id) { ti, track in
                 trackRow(trackIndex: ti, track: track, width: width)
             }
-            addRow(width: width)
+            addRow
         }
     }
 
@@ -114,8 +113,8 @@ struct TimelineView: View {
         let w = max(10, CGFloat(clip.duration.seconds) * ppx)
         return ClipCellView(clip: clip, sync: sync, ppx: ppx)
             .frame(width: w, height: 40)
-            .overlay(alignment: .leading) { trimHandle(.start, clip: clip, trackIndex: trackIndex) }
-            .overlay(alignment: .trailing) { trimHandle(.end, clip: clip, trackIndex: trackIndex) }
+            .overlay(alignment: .leading) { trimHandle(.trimStart, clip: clip, trackIndex: trackIndex) }
+            .overlay(alignment: .trailing) { trimHandle(.trimEnd, clip: clip, trackIndex: trackIndex) }
             .offset(x: x)
             .gesture(clipTapGesture(clip: clip, track: track))
             .simultaneousGesture(clipDragGesture(clip: clip, track: track, trackIndex: trackIndex))
@@ -178,12 +177,12 @@ struct TimelineView: View {
                     sync.session.select(clip.id)
                     dragClipID = clip.id
                     dragMode = edge
-                    sync.session.coalescingKey = "trim.\(clip.id).\(edge == .start ? "l" : "r")"
+                    sync.session.coalescingKey = "trim.\(clip.id).\(edge == .trimStart ? "l" : "r")"
                 }
                 guard dragMode == edge else { return }
                 let delta = timeDelta(g.translation.width)
                 let ripple = trackIndex == 0
-                if edge == .start {
+                if edge == .trimStart {
                     sync.session.perform("Trim") { p in
                         _ = try? EditOps.trimLeft(clip.id, bySource: delta.scaled(by: Float(1.0 / Double(clip.speed.rate))), ripple: ripple, &p)
                     }

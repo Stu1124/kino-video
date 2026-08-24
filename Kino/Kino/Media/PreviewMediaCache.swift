@@ -1,6 +1,7 @@
 import AVFoundation
 import Foundation
 import KinoEngine
+import UIKit
 
 /// Disk+memory cache for thumbnails and waveforms so timeline/preview never block.
 public final class MediaCache {

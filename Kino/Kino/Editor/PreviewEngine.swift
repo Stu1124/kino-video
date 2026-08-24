@@ -117,8 +117,8 @@ public final class PreviewEngine: ObservableObject {
     /// Step by ±1 frame.
     public func stepFrame(_ count: Int) {
         let fps = Rational.fps30 // canvas default
-        let frame = fps.frameDuration
-        let target = time + frame.scaled(by: Float(count))
+        let frameNs = 1_000_000_000 * fps.den / fps.num
+        let target = time + KTime(ns: frameNs * Int64(count))
         pause()
         seek(target, accurate: true)
     }
