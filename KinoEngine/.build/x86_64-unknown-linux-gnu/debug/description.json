@@ -32,6 +32,26 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt"
         },
         {
@@ -43,7 +63,12 @@
       "moduleName" : "KinoEngine",
       "moduleOutputPath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule",
       "objects" : [
-        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o"
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Effects.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KGeometry.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Keyframes.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.swift.o",
+        "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -86,12 +111,37 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Effects.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KGeometry.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Keyframes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule"
         }
       ],
       "prepareForIndexing" : false,
       "sources" : [
-        "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift"
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift",
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift",
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift",
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift",
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift",
+        "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
       ],
       "tempsPath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build",
       "wholeModuleOptimization" : false
@@ -359,6 +409,11 @@
       "kinoengine",
       "-c",
       "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift",
+      "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift",
       "-I",
       "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules",
       "-target",
@@ -597,6 +652,26 @@
         {
           "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift"
         }
       ],
       "outputFilePath" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/sources"
@@ -642,11 +717,31 @@
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Effects.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KGeometry.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o"
         },
         {
           "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/Keyframes.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KinoEngine.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/ProjectModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/SpeedMath.swift.o"
         },
         {
           "kind" : "file",

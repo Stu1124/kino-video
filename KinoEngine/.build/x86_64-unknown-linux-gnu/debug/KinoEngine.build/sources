@@ -1,1 +1,6 @@
 /root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift
+/root/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift
+/root/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift
+/root/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift
+/root/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift
+/root/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift
