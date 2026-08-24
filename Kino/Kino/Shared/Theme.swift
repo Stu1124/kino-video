@@ -78,3 +78,13 @@ enum KinoHaptics {
         #endif
     }
 }
+
+import OSLog
+extension View {
+    /// Debug trace helper — visible in console logs captured by CI diagnostics.
+    func log(_ message: String) -> some View {
+        let logger = Logger(subsystem: "studio.kino", category: "debug")
+        logger.info("\(message, privacy: .public)")
+        return self
+    }
+}

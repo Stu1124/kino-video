@@ -35,6 +35,7 @@ struct EditorScreen: View {
             TimelineView(sync: sync)
                 .frame(height: 300)
         }
+        .log("EditorScreen body")
         .background(KinoTheme.backgroundColor)
         .toolbar(.hidden, for: .navigationBar)
         .onAppear {
