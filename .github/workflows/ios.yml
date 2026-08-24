@@ -68,10 +68,12 @@ jobs:
       - name: Export screenshot attachments
         if: always()
         run: |
-          mkdir -p Screenshots
+          mkdir -p Screenshots Diagnostics
           if [ -d TestResults.xcresult ]; then
             xcrun xcresulttool export attachments --path TestResults.xcresult --output-path Screenshots 2>/dev/null || true
+            xcrun xcresulttool export diagnostics --path TestResults.xcresult --output-path Diagnostics 2>/dev/null || true
             ls -la Screenshots | head -40
+            ls -la Diagnostics | head -10
           fi
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -80,6 +82,7 @@ jobs:
           name: kino-artifacts
           path: |
             Screenshots
+            Diagnostics
             TestResults.xcresult
             DerivedData/Build/Products/Debug-iphonesimulator/Kino.app
             build.log
