@@ -24,7 +24,7 @@ public enum FixtureFactory {
     }
 
     public static func ensure() -> Fixtures? {
-        status = "writing media"
+        status = writing media
         let fm = FileManager.default
         let base = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("Fixtures", isDirectory: true)
@@ -36,17 +36,17 @@ public enum FixtureFactory {
         let wav = base.appendingPathComponent("fixture-tone.wav")
 
         if !fm.fileExists(atPath: a.path) { writeVideo(url: a, seconds: 2, color: UIColor.systemMint, label: "SUNLIGHT") }
-        status = "media A ok"
+        status = media A ok
         if !fm.fileExists(atPath: b.path) { writeVideo(url: b, seconds: 2, color: UIColor.systemOrange, label: "WARM") }
-        status = "media B ok"
+        status = media B ok
         if !fm.fileExists(atPath: img.path) { writeImage(url: img) }
         if !fm.fileExists(atPath: wav.path) { writeTone(url: wav, seconds: 4) }
-        status = "media done"
+        status = media done
 
-        let store = ProjectStore()
+        let store = ProjectStore.shared
         let sampleID = base.appendingPathComponent("fixture-project.json")
         var fixturesHost: UUID? = nil
-        status = "saving project"
+        status = saving project
         if !fm.fileExists(atPath: sampleID.path) {
             fixtures = nil
             var project = KinoProject(meta: .init(name: "Sample Edit"))
@@ -86,7 +86,7 @@ public enum FixtureFactory {
             fixturesHost = loaded.meta.id
         }
         fixtures = fixturesHost
-        status = "done"
+        status = done
         return Fixtures(videoA: a, videoB: b, image: img, audio: wav, projectID: fixturesHost ?? UUID())
     }
 
@@ -102,9 +102,9 @@ public enum FixtureFactory {
         let fps = 30
         let w = 480, h = 270
         try? FileManager.default.removeItem(at: url)
-        status = "\\(label): init writer"
+        status = label + ": init writer"
         guard let writer = try? AVAssetWriter(outputURL: url, fileType: .mov) else {
-            status = "\\(label): writer init failed"
+            status = label + ": writer init failed"
             return
         }
         let settings: [String: Any] = [
@@ -119,13 +119,13 @@ public enum FixtureFactory {
             kCVPixelBufferHeightKey as String: h,
         ]
         writer.add(input)
-        status = "\\(label): startWriting"
+        status = label + ": startWriting"
         guard writer.startWriting() else {
-            status = "\\(label): startWriting failed: \(writer.error?.localizedDescription ?? "?")"
+            status = label + ": startWriting failed: " + (writer.error?.localizedDescription ?? "?")
             return
         }
         writer.startSession(atSourceTime: .zero)
-        status = "\\(label): encoding"
+        status = label + ": encoding"
 
         let total = Int(seconds * Double(fps))
         var failed = false
@@ -137,7 +137,7 @@ public enum FixtureFactory {
                 if waited > 8 { failed = true; break }
             }
             if failed || writer.status != .writing {
-                status = "\\(label): stalled at frame \\(frame), status=\(writer.status.rawValue) err=\(writer.error?.localizedDescription ?? "none")"
+                status = label + ": stalled at frame " + String(frame) + " st=" + String(writer.status.rawValue) + " err=" + (writer.error?.localizedDescription ?? "none")
                 break
             }
             var buf: CVPixelBuffer?
@@ -216,7 +216,7 @@ public enum FixtureFactory {
         guard let file = try? AVAudioFile(forWriting: fileURL, settings: settings),
               let buf = AVAudioPCMBuffer(pcmFormat: file.processingFormat, frameCapacity: AVAudioFrameCount(n)),
               let data = buf.floatChannelData else {
-            status = "tone: setup failed"
+            status = tone: setup failed
             return
         }
         buf.frameLength = AVAudioFrameCount(n)
@@ -252,6 +252,6 @@ extension CMSampleBuffer {
 #if DEBUG
 final class FixtureStatus: ObservableObject {
     static let shared = FixtureStatus()
-    @Published var status = "not started"
+    @Published var status = not started
 }
 #endif

@@ -3,7 +3,7 @@ import SwiftUI
 import KinoEngine
 
 struct HomeScreen: View {
-    @StateObject private var store = ProjectStore()
+    @StateObject private var store = ProjectStore.shared
     @StateObject private var importer = MediaImporter()
     @State private var path = NavigationPath()
     @State private var showImporter = false
@@ -66,6 +66,9 @@ struct HomeScreen: View {
             Button("Cancel", role: .cancel) { renaming = nil }
         }
         .onAppear { _ = store.reloadIndex() }
+        .onReceive(NotificationCenter.default.publisher(for: ProjectStore.willReload)) { _ in
+            Task { @MainActor in _ = self.store.reloadIndex() }
+        }
         #if DEBUG
         .overlay(alignment: .bottom) {
             if ProcessInfo.processInfo.arguments.contains("--uitest") {

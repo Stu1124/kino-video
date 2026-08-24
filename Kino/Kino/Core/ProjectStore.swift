@@ -4,6 +4,8 @@ import KinoEngine
 /// Persists projects to the app's Documents directory: crash-safe JSON writes,
 /// metadata index, autosaving and cleanup.
 public final class ProjectStore: ObservableObject {
+    public static let shared = ProjectStore()
+
     @Published public private(set) var projects: [ProjectSummary] = []
 
     let root: URL
@@ -16,6 +18,10 @@ public final class ProjectStore: ObservableObject {
     }
 
     private var dir: URL { root }
+
+    /// Cross-instance change notification (picked up by the home screen).
+    public static let willReload = Notification.Name("kino.projects.reloaded")
+    public static func notifyWillReload() { NotificationCenter.default.post(name: willReload, object: nil) }
     private func fileURL(_ id: UUID) -> URL { dir.appendingPathComponent("\(id.uuidString).kino.json") }
 
     // MARK: Index
@@ -58,6 +64,7 @@ public final class ProjectStore: ObservableObject {
         }
         out.sort { $0.modifiedAt > $1.modifiedAt }
         projects = out
+        ProjectStore.notifyWillReload()
         return out
     }
 
