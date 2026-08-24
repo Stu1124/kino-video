@@ -94,7 +94,7 @@ public final class ThumbnailService {
                 return
             }
         }
-        queue.async { [weak self] in
+        queue.async { [weak self] () -> Void in
             guard let self else { return }
             let url2 = URL(string: uri)
             guard let url2 else { return }
