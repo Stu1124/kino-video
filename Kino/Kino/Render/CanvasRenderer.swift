@@ -45,10 +45,12 @@ final class CanvasRenderer {
         let crop = layer.transform.crop.clamped()
         let srcW = image.extent.width
         let srcH = image.extent.height
-        let cropRect = CGRect(x: crop.x * srcW, y: crop.y * srcH,
-                              width: max(1, crop.width * srcW), height: max(1, crop.height * srcH))
+        let cropRect = CGRect(x: CGFloat(crop.x) * srcW, y: CGFloat(crop.y) * srcH,
+                              width: max(1, CGFloat(crop.width) * srcW), height: max(1, CGFloat(crop.height) * srcH))
         image = image.cropped(to: cropRect)
-        let croppedSize = KVec2(Float(srcW * crop.width), Float(srcH * crop.height))
+        let croppedW = Float(srcW * CGFloat(crop.width))
+        let croppedH = Float(srcH * CGFloat(crop.height))
+        let croppedSize = KVec2(croppedW, croppedH)
 
         // 2. fit-transform
         image = transform(image: image, assetSize: croppedSize, layer: layer, renderSize: renderSize)
@@ -375,7 +377,7 @@ final class CanvasRenderer {
         guard let maskIMG = Self.rasterizeMask(mask, renderSize: renderSize) else { return image }
         var m = maskIMG
         if mask.feather > 0.001 {
-            let blurPx = CGFloat(mask.feather) * min(renderSize.width, renderSize.height) * 0.5
+            let blurPx = CGFloat(mask.feather) * min(renderSize.width, renderSize.height) * CGFloat(0.5)
             m = m.applyingFilter("CIGaussianBlur", parameters: ["inputRadius": blurPx])
         }
         if mask.inverted {

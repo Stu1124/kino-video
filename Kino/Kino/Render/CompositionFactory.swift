@@ -21,6 +21,10 @@ final class CompositionFactory {
 
     /// Build composition for preview/export at a given scale (renderSize = canvas * scale).
     static func build(project: KinoProject, renderScale: Float, fps: Rational = .fps30) throws -> Model {
+        return try buildSync(project: project, renderScale: renderScale, fps: fps)
+    }
+
+    static func buildSync(project: KinoProject, renderScale: Float, fps: Rational = .fps30) throws -> Model {
         let composition = AVMutableComposition()
 
         // ---- clock video track (main+overlay video clips; images/text skipped) ----
@@ -33,7 +37,7 @@ final class CompositionFactory {
                 guard clip.kind == .video, let assetID = clip.assetID,
                       let asset = project.asset(assetID), let url = URL(string: asset.uri) else { continue }
                 let src = AVURLAsset(url: url)
-                guard let srcTrack = try? src.loadTracks(withMediaType: .video).first else { continue }
+                guard let srcTrack = try? SynchronousTrackLoader.track(asset: src, type: .video) else { continue }
                 let srcRange = CMTimeRange(start: clip.sourceRange.start.cmTime, duration: clip.sourceRange.duration.cmTime)
                 _ = try? clockTrack.insertTimeRange(srcRange, of: srcTrack, at: clip.start.cmTime)
             }
@@ -48,7 +52,7 @@ final class CompositionFactory {
                 guard clip.kind == .video || clip.kind == .audio else { continue }
                 guard let assetID = clip.assetID, let url = URL(string: project.asset(assetID)?.uri ?? "") else { continue }
                 let src = AVURLAsset(url: url)
-                guard let srcAudio = try? src.loadTracks(withMediaType: .audio).first else { continue }
+                guard let srcAudio = try? SynchronousTrackLoader.track(asset: src, type: .audio) else { continue }
                 let srcStart = clip.sourceRange.start.cmTime
                 let srcDur = clip.sourceRange.duration.cmTime
                 let at = clip.start.cmTime + clip.audio.offset.cmTime
@@ -112,13 +116,12 @@ final class CompositionFactory {
             let p = AVMutableAudioMixInputParameters(track: audioTrack)
             let start = clip.start.cmTime
             let end = (clip.start + clip.duration).cmTime
-            let v = Double(clip.audio.muted ? 0 : clip.audio.volume)
-            // constant volume at beginning
-            p.setVolume(v, at: start)
-            p.setVolumeRamp(fromStartVolume: 0, toEndVolume: v, timeRange: CMTimeRange(start: start, duration: clip.audio.fadeIn.cmTime))
+            let av = Float(clip.audio.muted ? 0 : clip.audio.volume)
+            p.setVolume(av, at: start)
+            p.setVolumeRamp(fromStartVolume: 0, toEndVolume: av, timeRange: CMTimeRange(start: start, duration: clip.audio.fadeIn.cmTime))
             if clip.audio.fadeOut.ns > 0 {
                 let fadeStart = end - clip.audio.fadeOut.cmTime
-                p.setVolumeRamp(fromStartVolume: v, toEndVolume: 0, timeRange: CMTimeRange(start: fadeStart, end: end))
+                p.setVolumeRamp(fromStartVolume: av, toEndVolume: 0, timeRange: CMTimeRange(start: fadeStart, end: end))
             }
             p.audioTimePitchAlgorithm = clip.speed.preservePitch ? .timeDomain : .spectral
             params.append(p)
@@ -166,7 +169,8 @@ final class CompositionFactory {
                 if let t = clip.transition {
                     let b = clip.timelineRange.end
                     if to > (b - t.duration) && from < b {
-                        transition = KinoTransition.Resolved(kind: t.kind, duration: t.duration, direction: t.direction)
+                        transition = KinoTransition.Resolved(kind: KinoTransition.Kind(rawValue: t.kind) ?? .dissolve,
+                                                            duration: t.duration, direction: t.direction)
                         leftID = clip.id
                         boundary = b
                         // right neighbor
@@ -185,5 +189,24 @@ final class CompositionFactory {
                                 transitionRightID: rightID,
                                 transitionBoundary: boundary,
                                 clockTrackID: clockID)
+    }
+}
+
+
+/// Synchronous AVAsset track loader (deprecated-but-safe) for composition building.
+enum SynchronousTrackLoader {
+    static func track(asset: AVURLAsset, type: AVMediaType) throws -> AVAssetTrack {
+        let semaphore = DispatchSemaphore(value: 0)
+        var found: AVAssetTrack?
+        var error: Error?
+        asset.loadTracks(withMediaType: type) { tracks, err in
+            found = tracks?.first
+            error = err
+            semaphore.signal()
+        }
+        semaphore.wait()
+        if let error { throw error }
+        guard let found else { throw NSError(domain: "kino.sync", code: 1) }
+        return found
     }
 }
