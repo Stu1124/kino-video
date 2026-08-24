@@ -161,7 +161,12 @@ public struct KeyframeStore: Hashable, Codable, Sendable {
     public mutating func setKeys(at t: KTime, properties: [String: Float], curve: KCurveSpec = .linear) {
         for (prop, value) in properties {
             var ch = channels[prop] ?? KChannel(property: prop)
-            var kf = ch.keyframes.first(where: { abs($0.time.ns - t.ns) < 1 }) ?? Keyframe(time: t, value: value)
+            var kf: Keyframe
+            if let existing = ch.keyframes.first(where: { abs($0.time.ns - t.ns) < 1 }) {
+                kf = existing
+            } else {
+                kf = Keyframe(time: t, value: value)
+            }
             kf.value = value
             kf.time = t
             kf.curve = curve
