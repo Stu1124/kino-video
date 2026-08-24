@@ -213,16 +213,20 @@ public enum FixtureFactory {
             AVSampleRateKey: sr,
             AVNumberOfChannelsKey: 1,
         ]
-        let file = (try? AVAudioFile(forWriting: fileURL, settings: settings))!
-        let buf = AVAudioPCMBuffer(pcmFormat: file.processingFormat, frameCapacity: AVAudioFrameCount(n))!
+        guard let file = try? AVAudioFile(forWriting: fileURL, settings: settings),
+              let buf = AVAudioPCMBuffer(pcmFormat: file.processingFormat, frameCapacity: AVAudioFrameCount(n)),
+              let data = buf.floatChannelData else {
+            status = "tone: setup failed"
+            return
+        }
         buf.frameLength = AVAudioFrameCount(n)
-        let data = buf.floatChannelData![0]
+        let data0 = data[0]
         for i in 0..<n {
             let t = Double(i) / sr
             let beat = sin(2 * .pi * 440 * t)
             let melody = sin(2 * .pi * 220 * t) * 0.5
             let env = (1 + sin(2 * .pi * 0.5 * t)) * 0.5
-            data[i] = Float((beat + melody) * 0.22 * env)
+            data0[i] = Float((beat + melody) * 0.22 * env)
         }
         try? file.write(from: buf)
     }
