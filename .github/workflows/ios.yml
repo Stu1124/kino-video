@@ -51,7 +51,10 @@ jobs:
             CODE_SIGNING_ALLOWED=NO build 2>&1 | tee build.log | tail -8
       - name: Show compile errors
         if: always()
-        run: grep -E "error:|warning:" build.log | head -60 || true
+        run: |
+          grep -E "error:|warning:" build.log | head -60 || true
+          echo "------- source context around the cache service -------"
+          sed -n '40,110p' Kino/Kino/Media/PreviewMediaCache.swift || true
       - name: Run unit + UI tests with screenshots
         shell: bash
         run: |
