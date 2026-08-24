@@ -63,6 +63,19 @@ struct HomeScreen: View {
             Button("Cancel", role: .cancel) { renaming = nil }
         }
         .onAppear { _ = store.reloadIndex() }
+        #if DEBUG
+        .overlay(alignment: .bottom) {
+            if ProcessInfo.processInfo.arguments.contains("--uitest") {
+                Text("Fixtures: \(FixtureFactory.status)")
+                    .font(.system(size: 10))
+                    .foregroundStyle(KinoTheme.textTertiary)
+                    .padding(6)
+                    .background(KinoTheme.ink2, in: Capsule())
+                    .padding(.bottom, 8)
+                    .accessibilityIdentifier("fixture-status")
+            }
+        }
+        #endif
     }
 
     // MARK: sections

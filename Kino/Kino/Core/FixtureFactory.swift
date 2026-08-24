@@ -24,6 +24,7 @@ public enum FixtureFactory {
     }
 
     public static func ensure() -> Fixtures? {
+        status = "writing media"
         let fm = FileManager.default
         let base = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("Fixtures", isDirectory: true)
@@ -35,13 +36,17 @@ public enum FixtureFactory {
         let wav = base.appendingPathComponent("fixture-tone.wav")
 
         if !fm.fileExists(atPath: a.path) { writeVideo(url: a, seconds: 2, color: UIColor.systemMint, label: "SUNLIGHT") }
+        status = "media A ok"
         if !fm.fileExists(atPath: b.path) { writeVideo(url: b, seconds: 2, color: UIColor.systemOrange, label: "WARM") }
+        status = "media B ok"
         if !fm.fileExists(atPath: img.path) { writeImage(url: img) }
         if !fm.fileExists(atPath: wav.path) { writeTone(url: wav, seconds: 4) }
+        status = "media done"
 
         let store = ProjectStore()
         let sampleID = base.appendingPathComponent("fixture-project.json")
         var fixturesHost: UUID? = nil
+        status = "saving project"
         if !fm.fileExists(atPath: sampleID.path) {
             fixtures = nil
             var project = KinoProject(meta: .init(name: "Sample Edit"))
@@ -81,8 +86,11 @@ public enum FixtureFactory {
             fixturesHost = loaded.meta.id
         }
         fixtures = fixturesHost
+        status = "done"
         return Fixtures(videoA: a, videoB: b, image: img, audio: wav, projectID: fixturesHost ?? UUID())
     }
+
+    public static var status: String = "not started"
 
     public static var fixtures: UUID?
 
