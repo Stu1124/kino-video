@@ -94,7 +94,7 @@ public final class ThumbnailService {
                 return
             }
         }
-        queue.async { [weak self] () -> Void in
+        queue.async(execute: { [weak self] () -> Void in
             guard let self else { return }
             let url2 = URL(string: uri)
             guard let url2 else { return }
@@ -116,7 +116,7 @@ public final class ThumbnailService {
                 self.cache.store(encodeStrip(images), base: base, ext: "strip")
             }
             DispatchQueue.main.async { completion(images) }
-        }
+        })
     }
 
     private func encodeStrip(_ images: [CGImage]) -> Data {
