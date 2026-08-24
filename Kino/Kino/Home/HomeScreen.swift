@@ -5,7 +5,7 @@ import KinoEngine
 struct HomeScreen: View {
     @StateObject private var store = ProjectStore.shared
     @StateObject private var importer = MediaImporter()
-    @State private var path = NavigationPath()
+    @State private var openProjectID: UUID?
     @State private var showImporter = false
     @State private var importErr: String?
     @State private var showDelete: ProjectStore.ProjectSummary?
@@ -18,7 +18,7 @@ struct HomeScreen: View {
     #endif
 
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 22) {
                     header
@@ -44,7 +44,7 @@ struct HomeScreen: View {
             .background(KinoTheme.backgroundColor)
             .toolbar(.hidden, for: .navigationBar)
         }
-        .navigationDestination(for: UUID.self) { id in
+        .fullScreenCover(item: BindableProject(item: $openProjectID)) { id in
             EditorScreen(projectID: id)
         }
         .sheet(isPresented: $showImporter) {
@@ -166,7 +166,7 @@ struct HomeScreen: View {
             do {
                 let p = try store.createProject(name: defaultProjectName())
                 _ = store.reloadIndex()
-                path.append(p.meta.id)
+                openProjectID = p.meta.id
             } catch {
                 importErr = "Could not create project: \(error.localizedDescription)"
             }
@@ -180,7 +180,7 @@ struct HomeScreen: View {
     }
 
     private func open(_ summary: ProjectStore.ProjectSummary) {
-        path.append(summary.id)
+        openProjectID = summary.id
     }
 
     private func handle(_ summary: ProjectStore.ProjectSummary, action: ProjectContextAction) {
@@ -316,4 +316,11 @@ struct ThumbBox: View {
             }
         }
     }
+}
+
+
+/// Simple Identifiable wrapper bridging UUID -> fullScreenCover(item:)
+struct BindableProject: Identifiable {
+    var item: Binding<UUID?>
+    var id: UUID { item.wrappedValue ?? UUID() }
 }
