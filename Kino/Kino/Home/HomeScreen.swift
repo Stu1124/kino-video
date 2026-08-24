@@ -13,6 +13,9 @@ struct HomeScreen: View {
     @State private var renameText = ""
     @State private var pendingImportIdentifiers: [String] = []
     @State private var creatingNew = false
+    #if DEBUG
+    @StateObject private var fixtureStatus = FixtureStatus.shared
+    #endif
 
     var body: some View {
         NavigationStack(path: $path) {
@@ -66,7 +69,7 @@ struct HomeScreen: View {
         #if DEBUG
         .overlay(alignment: .bottom) {
             if ProcessInfo.processInfo.arguments.contains("--uitest") {
-                Text("Fixtures: \(FixtureFactory.status)")
+                Text("Fixtures: \(fixtureStatus.status)")
                     .font(.system(size: 10))
                     .foregroundStyle(KinoTheme.textTertiary)
                     .padding(6)

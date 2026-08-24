@@ -90,7 +90,9 @@ public enum FixtureFactory {
         return Fixtures(videoA: a, videoB: b, image: img, audio: wav, projectID: fixturesHost ?? UUID())
     }
 
-    public static var status: String = "not started"
+    public static var status: String = "not started" {
+        didSet { FixtureStatus.shared.status = status }
+    }
 
     public static var fixtures: UUID?
 
@@ -223,3 +225,11 @@ extension CMSampleBuffer {
         return sample
     }
 }
+
+
+#if DEBUG
+final class FixtureStatus: ObservableObject {
+    static let shared = FixtureStatus()
+    @Published var status = "not started"
+}
+#endif

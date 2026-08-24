@@ -1,0 +1,992 @@
+Command line invocation:
+    /Applications/Xcode_16.4.app/Contents/Developer/usr/bin/xcodebuild -project Kino.xcodeproj -scheme Kino -destination "generic/platform=iOS Simulator" -derivedDataPath DerivedData CODE_SIGNING_ALLOWED=NO build
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  KinoEngine: /Users/runner/work/kino-video/kino-video/KinoEngine
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'Kino' in project 'Kino'
+        ➜ Explicit dependency on target 'KinoEngine' in project 'KinoEngine'
+    Target 'KinoEngine' in project 'KinoEngine'
+        ➜ Explicit dependency on target 'KinoEngine' in project 'KinoEngine'
+    Target 'KinoEngine' in project 'KinoEngine' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: d92adf0238d7bc3d1c2a031e15331767
+Build description path: /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/XCBuildData/d92adf0238d7bc3d1c2a031e15331767.xcbuilddata
+ClangStatCache /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -o /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache
+
+CreateBuildDirectory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-create-build-directory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products
+
+CreateBuildDirectory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-create-build-directory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml
+
+CreateBuildDirectory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-create-build-directory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator
+
+CreateBuildDirectory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-create-build-directory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+CreateBuildDirectory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-create-build-directory /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_const_extract_protocols.json (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftConstValuesFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.LinkFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-OutputFileMap.json (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_const_extract_protocols.json (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftConstValuesFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.LinkFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-OutputFileMap.json (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.modulemap (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.modulemap
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.DependencyStaticMetadataFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.DependencyMetadataFileList (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.DependencyMetadataFileList
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator/KinoEngine.modulemap /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.modulemap (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.modulemap /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/empty-Kino.plist (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/empty-Kino.plist
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_const_extract_protocols.json (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftConstValuesFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.LinkFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-OutputFileMap.json (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_const_extract_protocols.json (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftConstValuesFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.LinkFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-OutputFileMap.json (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.hmap (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.hmap
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.DependencyStaticMetadataFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.DependencyMetadataFileList (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-target-headers.hmap (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibPath-normal-x86_64.txt (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibPath-normal-x86_64.txt
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibPath-normal-arm64.txt (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibInstallName-normal-x86_64.txt (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibInstallName-normal-x86_64.txt
+
+WriteAuxiliaryFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibInstallName-normal-arm64.txt (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    write-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /bin/mkdir -p /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app
+
+SwiftDriver KinoEngine normal arm64 com.apple.xcode.tools.swift.compiler (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KinoEngine -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -I /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name kinoengine -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_const_extract_protocols.json -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-Swift.h -working-directory /Users/runner/work/kino-video/kino-video/Kino.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver KinoEngine normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KinoEngine -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -I /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name kinoengine -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_const_extract_protocols.json -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-Swift.h -working-directory /Users/runner/work/kino-video/kino-video/Kino.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ KinoEngine (in target 'KinoEngine' from project 'KinoEngine')
+
+EmitSwiftModule normal x86_64 (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ KinoEngine (in target 'KinoEngine' from project 'KinoEngine')
+EmitSwiftModule normal arm64 (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ AudioDSP.swift,\ KTime.swift,\ Effects.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift (in target 'KinoEngine' from project 'KinoEngine')
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 Compiling\ KGeometry.swift,\ Keyframes.swift,\ ProjectModel.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift (in target 'KinoEngine' from project 'KinoEngine')
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 Compiling\ AudioDSP.swift,\ KTime.swift,\ Effects.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Audio/AudioDSP.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Effects/Effects.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for KinoEngine (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for KinoEngine (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftDriver\ Compilation\ Requirements KinoEngine normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KinoEngine -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -I /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name kinoengine -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_const_extract_protocols.json -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-Swift.h -working-directory /Users/runner/work/kino-video/kino-video/Kino.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling AudioDSP.swift, KTime.swift, Effects.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftDriver\ Compilation\ Requirements KinoEngine normal arm64 com.apple.xcode.tools.swift.compiler (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KinoEngine -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -I /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name kinoengine -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_const_extract_protocols.json -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-Swift.h -working-directory /Users/runner/work/kino-video/kino-video/Kino.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ KGeometry.swift,\ Keyframes.swift,\ ProjectModel.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Geometry/KGeometry.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Keyframes/Keyframes.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Model/ProjectModel.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftMergeGeneratedHeaders /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator/KinoEngine-Swift.h /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-Swift.h /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-Swift.h (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-Swift.h -arch x86_64 /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-Swift.h -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator/KinoEngine-Swift.h
+
+SwiftDriverJobDiscovery normal x86_64 Compiling AudioDSP.swift, KTime.swift, Effects.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftmodule (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/x86_64-apple-ios-simulator.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftdoc (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/x86_64-apple-ios-simulator.swiftdoc
+
+SwiftDriverJobDiscovery normal x86_64 Compiling KGeometry.swift, Keyframes.swift, ProjectModel.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/x86_64-apple-ios-simulator.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.abi.json (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftmodule (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftdoc (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.abi.json (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftsourceinfo (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftsourceinfo (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftCompile normal x86_64 Compiling\ EditorSession.swift,\ RenderTree.swift,\ SpeedMath.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ EditorSession.swift,\ RenderTree.swift,\ SpeedMath.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Operations/EditorSession.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Render/RenderTree.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/KinoEngine/Sources/KinoEngine/Speed/SpeedMath.swift (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    
+
+SwiftDriverJobDiscovery normal x86_64 Compiling EditorSession.swift, RenderTree.swift, SpeedMath.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftDriver\ Compilation KinoEngine normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-Swift-Compilation -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KinoEngine -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -I /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name kinoengine -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_const_extract_protocols.json -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine-Swift.h -working-directory /Users/runner/work/kino-video/kino-video/Kino.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/Binary/KinoEngine.o normal x86_64 (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -r -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -L/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -filelist /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftmodule -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/Binary/KinoEngine.o
+
+SwiftDriverJobDiscovery normal arm64 Compiling EditorSession.swift, RenderTree.swift, SpeedMath.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftDriver Kino normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-SwiftDriver -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Kino -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-Swift.h -working-directory /Users/runner/work/kino-video/kino-video -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver Kino normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-SwiftDriver -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Kino -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-Swift.h -working-directory /Users/runner/work/kino-video/kino-video -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Kino (in target 'Kino' from project 'Kino')
+EmitSwiftModule normal arm64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:135:9: warning: sendability of function types in property 'sourcePixelBufferAttributes' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var sourcePixelBufferAttributes: [String: Any]? = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:141:91: note: expected sendability to match requirement here
+@property (nonatomic, readonly, nullable) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *sourcePixelBufferAttributes;
+                                                                                          ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:140:9: warning: sendability of function types in property 'requiredPixelBufferAttributesForRenderContext' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var requiredPixelBufferAttributesForRenderContext: [String: Any] = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:151:81: note: expected sendability to match requirement here
+@property (nonatomic, readonly) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *requiredPixelBufferAttributesForRenderContext;
+                                                                                ^
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ Kino (in target 'Kino' from project 'Kino')
+EmitSwiftModule normal x86_64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:135:9: warning: sendability of function types in property 'sourcePixelBufferAttributes' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var sourcePixelBufferAttributes: [String: Any]? = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:141:91: note: expected sendability to match requirement here
+@property (nonatomic, readonly, nullable) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *sourcePixelBufferAttributes;
+                                                                                          ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:140:9: warning: sendability of function types in property 'requiredPixelBufferAttributesForRenderContext' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var requiredPixelBufferAttributesForRenderContext: [String: Any] = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:151:81: note: expected sendability to match requirement here
+@property (nonatomic, readonly) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *requiredPixelBufferAttributesForRenderContext;
+                                                                                ^
+
+SwiftCompile normal x86_64 Compiling\ HomeScreen.swift,\ KinoApp.swift,\ KinoCompositor.swift,\ KinoExporter.swift,\ KinoMediaPicker.swift,\ MediaImporter.swift,\ PreviewEngine.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Home/HomeScreen.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/App/KinoApp.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/KinoMediaPicker.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/PreviewEngine.swift (in target 'Kino' from project 'Kino')
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Home/HomeScreen.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/App/KinoApp.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:135:9: warning: sendability of function types in property 'sourcePixelBufferAttributes' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var sourcePixelBufferAttributes: [String: Any]? = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:141:91: note: expected sendability to match requirement here
+@property (nonatomic, readonly, nullable) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *sourcePixelBufferAttributes;
+                                                                                          ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:140:9: warning: sendability of function types in property 'requiredPixelBufferAttributesForRenderContext' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var requiredPixelBufferAttributesForRenderContext: [String: Any] = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:151:81: note: expected sendability to match requirement here
+@property (nonatomic, readonly) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *requiredPixelBufferAttributesForRenderContext;
+                                                                                ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:157:17: warning: code after 'return' will never be executed
+                return
+                ^
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift:61:13: warning: variable 'resultError' was never mutated; consider changing to 'let' constant
+        var resultError: Error?
+        ~~~ ^
+        let
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift:53:39: warning: capture of 'session' with non-sendable type 'AVAssetExportSession' in a '@Sendable' closure; this is an error in the Swift 6 language mode
+                    onProgress(Double(session.progress), "Exporting \(Int(session.progress * 100))%")
+                                      ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVAssetExportSession.h:156:12: note: class 'AVAssetExportSession' does not conform to the 'Sendable' protocol
+@interface AVAssetExportSession : NSObject
+           ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift:89:52: warning: conditional downcast from 'Task<Void, Never>?' to 'Task<Void, Never>' does nothing
+    private var taskCancelled: Bool { (currentTask as? Task<Void, Never>)?.isCancelled ?? false }
+                                       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+                                                  
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/KinoMediaPicker.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift:57:13: warning: initialization of immutable value 'fm' was never used; consider replacing with assignment to '_' or removing it
+        let fm = FileManager.default
+        ~~~~^~
+        _
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift:136:9: warning: no calls to throwing functions occur within 'try' expression
+        try await Task.detached {
+        ^
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/PreviewEngine.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/PreviewEngine.swift:108:19: warning: value 'item' was defined but never used; consider replacing with boolean test
+        guard let item else { return }
+              ~~~~^
+                       != nil
+
+SwiftDriverJobDiscovery normal arm64 Compiling KGeometry.swift, Keyframes.swift, ProjectModel.swift (in target 'KinoEngine' from project 'KinoEngine')
+
+SwiftDriver\ Compilation KinoEngine normal arm64 com.apple.xcode.tools.swift.compiler (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/Kino.xcodeproj
+    builtin-Swift-Compilation -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KinoEngine -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -I /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name kinoengine -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_const_extract_protocols.json -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine-Swift.h -working-directory /Users/runner/work/kino-video/kino-video/Kino.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for Kino (in target 'Kino' from project 'Kino')
+
+SwiftDriver\ Compilation\ Requirements Kino normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Kino -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-Swift.h -working-directory /Users/runner/work/kino-video/kino-video -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/Binary/KinoEngine.o normal arm64 (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -r -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -L/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -filelist /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftmodule -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/Binary/KinoEngine.o
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftmodule (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for Kino (in target 'Kino' from project 'Kino')
+
+SwiftDriver\ Compilation\ Requirements Kino normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Kino -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-Swift.h -working-directory /Users/runner/work/kino-video/kino-video -experimental-emit-module-separately -disable-cmo
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftdoc (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.abi.json (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+CreateUniversalBinary /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.o normal arm64\ x86_64 (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/Binary/KinoEngine.o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/Binary/KinoEngine.o -output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.o
+
+SwiftMergeGeneratedHeaders /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/Kino-Swift.h /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-Swift.h /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-Swift.h (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-Swift.h -arch x86_64 /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-Swift.h -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/Kino-Swift.h
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/x86_64-apple-ios-simulator.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftmodule (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftmodule /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/x86_64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/x86_64-apple-ios-simulator.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftdoc (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftdoc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/x86_64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/x86_64-apple-ios-simulator.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.abi.json (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.abi.json /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftsourceinfo (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+
+Copy /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftsourceinfo (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftsourceinfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftCompile normal arm64 Compiling\ CIKernels.swift,\ CanvasRenderer.swift,\ CompositionFactory.swift,\ EditorScreen.swift,\ EditorSessionBridge.swift,\ ExportView.swift,\ FixtureFactory.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CanvasRenderer.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CompositionFactory.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/ExportView.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/FixtureFactory.swift (in target 'Kino' from project 'Kino')
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:22:13: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+            CIKernel(source: source) ?? CIKernel(source: """
+            ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:22:41: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+            CIKernel(source: source) ?? CIKernel(source: """
+                                        ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:26:24: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        let fallback = CIKernel(source: """
+                       ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:29:21: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        chromaKey = CIKernel(source: Self.kChromaKey) ?? fallback
+                    ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:30:20: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        rgbSplit = CIKernel(source: Self.kRgbSplit) ?? fallback
+                   ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:31:18: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        slices = CIKernel(source: Self.kSlices) ?? fallback
+                 ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:32:23: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        staticNoise = CIKernel(source: Self.kStatic) ?? fallback
+                      ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:33:15: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        vhs = CIKernel(source: Self.kVHS) ?? fallback
+              ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:34:20: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        edgeXray = CIKernel(source: Self.kXRay) ?? fallback
+                   ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:35:21: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        lensFlare = CIKernel(source: Self.kFlare) ?? fallback
+                    ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:36:17: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        smear = CIKernel(source: Self.kSmear) ?? fallback
+                ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:37:21: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        punchMono = CIKernel(source: Self.kPunchMono) ?? fallback
+                    ^
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CanvasRenderer.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CompositionFactory.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift:43:10: warning: 'onChange(of:perform:)' was deprecated in iOS 17.0: Use `onChange` with a two or zero parameter action closure instead.
+        .onChange(of: sync.currentTime) { t in
+         ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift:227:21: warning: result of call to 'selectClip(at:on:)' is unused
+            session.selectClip(at: session.playhead)
+                    ^         ~~~~~~~~~~~~~~~~~~~~~~
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift:58:19: warning: value 'selected' was defined but never used; consider replacing with boolean test
+        guard let selected = session.selectedClip else { return .none }
+              ~~~~^~~~~~~~~~~
+                                                  != nil
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift:103:17: warning: call to method 'subjectStateForSave' in closure requires explicit use of 'self' to make capture semantics explicit; this is an error in the Swift 6 language mode
+                subjectStateForSave()
+                ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift:101:42: warning: immutable value 'self' was never used; consider replacing with '_' or removing it
+            guard !Task.isCancelled, let self else { return }
+                                     ~~~~^~~~
+                                     _
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/ExportView.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/FixtureFactory.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Core/FixtureFactory.swift:85:32: warning: no calls to throwing functions occur within 'try' expression
+        } else if let loaded = try? store.load(UUID(uuidString: "00000000-0000-0000-0000-000000000001")!) {
+                               ^
+
+SwiftCompile normal arm64 Compiling\ PreviewMediaCache.swift,\ ProjectStore.swift,\ StickerAtlas.swift,\ TextRasterizer.swift,\ Theme.swift,\ TimeBridging.swift,\ TimelineView.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/PreviewMediaCache.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/ProjectStore.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/StickerAtlas.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/TextRasterizer.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Shared/Theme.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/TimeBridging.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Timeline/TimelineView.swift (in target 'Kino' from project 'Kino')
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/PreviewMediaCache.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/ProjectStore.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/StickerAtlas.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/TextRasterizer.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/TextRasterizer.swift:23:17: warning: initialization of immutable value 'cgc' was never used; consider replacing with assignment to '_' or removing it
+            let cgc = ctx.cgContext
+            ~~~~^~~
+            _
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Shared/Theme.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/TimeBridging.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Core/TimeBridging.swift:28:17: warning: 'naturalSize' was deprecated in iOS 16.0: Use load(.naturalSize) instead
+        let s = naturalSize
+                ^
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Timeline/TimelineView.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Timeline/TimelineView.swift:43:10: warning: 'onChange(of:perform:)' was deprecated in iOS 17.0: Use `onChange` with a two or zero parameter action closure instead.
+        .onChange(of: sync.projectChangedTick) { _ in
+         ^
+
+SwiftCompile normal arm64 Compiling\ HomeScreen.swift,\ KinoApp.swift,\ KinoCompositor.swift,\ KinoExporter.swift,\ KinoMediaPicker.swift,\ MediaImporter.swift,\ PreviewEngine.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Home/HomeScreen.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/App/KinoApp.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/KinoMediaPicker.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/PreviewEngine.swift (in target 'Kino' from project 'Kino')
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Home/HomeScreen.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/App/KinoApp.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:135:9: warning: sendability of function types in property 'sourcePixelBufferAttributes' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var sourcePixelBufferAttributes: [String: Any]? = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:141:91: note: expected sendability to match requirement here
+@property (nonatomic, readonly, nullable) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *sourcePixelBufferAttributes;
+                                                                                          ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:140:9: warning: sendability of function types in property 'requiredPixelBufferAttributesForRenderContext' does not match requirement in protocol 'AVVideoCompositing'; this is an error in the Swift 6 language mode
+    var requiredPixelBufferAttributesForRenderContext: [String: Any] = [
+        ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVVideoCompositing.h:151:81: note: expected sendability to match requirement here
+@property (nonatomic, readonly) NSDictionary<NSString *, id> NS_SWIFT_SENDABLE *requiredPixelBufferAttributesForRenderContext;
+                                                                                ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/KinoCompositor.swift:157:17: warning: code after 'return' will never be executed
+                return
+                ^
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift:61:13: warning: variable 'resultError' was never mutated; consider changing to 'let' constant
+        var resultError: Error?
+        ~~~ ^
+        let
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift:53:39: warning: capture of 'session' with non-sendable type 'AVAssetExportSession' in a '@Sendable' closure; this is an error in the Swift 6 language mode
+                    onProgress(Double(session.progress), "Exporting \(Int(session.progress * 100))%")
+                                      ^
+/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVAssetExportSession.h:156:12: note: class 'AVAssetExportSession' does not conform to the 'Sendable' protocol
+@interface AVAssetExportSession : NSObject
+           ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Export/KinoExporter.swift:89:52: warning: conditional downcast from 'Task<Void, Never>?' to 'Task<Void, Never>' does nothing
+    private var taskCancelled: Bool { (currentTask as? Task<Void, Never>)?.isCancelled ?? false }
+                                       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+                                                  
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/KinoMediaPicker.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift:57:13: warning: initialization of immutable value 'fm' was never used; consider replacing with assignment to '_' or removing it
+        let fm = FileManager.default
+        ~~~~^~
+        _
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Media/MediaImporter.swift:136:9: warning: no calls to throwing functions occur within 'try' expression
+        try await Task.detached {
+        ^
+
+SwiftCompile normal arm64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/PreviewEngine.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/PreviewEngine.swift:108:19: warning: value 'item' was defined but never used; consider replacing with boolean test
+        guard let item else { return }
+              ~~~~^
+                       != nil
+
+SwiftDriverJobDiscovery normal x86_64 Compiling HomeScreen.swift, KinoApp.swift, KinoCompositor.swift, KinoExporter.swift, KinoMediaPicker.swift, MediaImporter.swift, PreviewEngine.swift (in target 'Kino' from project 'Kino')
+
+SwiftCompile normal x86_64 Compiling\ PreviewMediaCache.swift,\ ProjectStore.swift,\ StickerAtlas.swift,\ TextRasterizer.swift,\ Theme.swift,\ TimeBridging.swift,\ TimelineView.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/PreviewMediaCache.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/ProjectStore.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/StickerAtlas.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/TextRasterizer.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Shared/Theme.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/TimeBridging.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Timeline/TimelineView.swift (in target 'Kino' from project 'Kino')
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Media/PreviewMediaCache.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/ProjectStore.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/StickerAtlas.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/TextRasterizer.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/TextRasterizer.swift:23:17: warning: initialization of immutable value 'cgc' was never used; consider replacing with assignment to '_' or removing it
+            let cgc = ctx.cgContext
+            ~~~~^~~
+            _
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Shared/Theme.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/TimeBridging.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Core/TimeBridging.swift:28:17: warning: 'naturalSize' was deprecated in iOS 16.0: Use load(.naturalSize) instead
+        let s = naturalSize
+                ^
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Timeline/TimelineView.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Timeline/TimelineView.swift:43:10: warning: 'onChange(of:perform:)' was deprecated in iOS 17.0: Use `onChange` with a two or zero parameter action closure instead.
+        .onChange(of: sync.projectChangedTick) { _ in
+         ^
+
+SwiftDriverJobDiscovery normal arm64 Compiling PreviewMediaCache.swift, ProjectStore.swift, StickerAtlas.swift, TextRasterizer.swift, Theme.swift, TimeBridging.swift, TimelineView.swift (in target 'Kino' from project 'Kino')
+
+SwiftCompile normal x86_64 Compiling\ CIKernels.swift,\ CanvasRenderer.swift,\ CompositionFactory.swift,\ EditorScreen.swift,\ EditorSessionBridge.swift,\ ExportView.swift,\ FixtureFactory.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CanvasRenderer.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CompositionFactory.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/ExportView.swift /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/FixtureFactory.swift (in target 'Kino' from project 'Kino')
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:22:13: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+            CIKernel(source: source) ?? CIKernel(source: """
+            ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:22:41: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+            CIKernel(source: source) ?? CIKernel(source: """
+                                        ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:26:24: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        let fallback = CIKernel(source: """
+                       ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:29:21: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        chromaKey = CIKernel(source: Self.kChromaKey) ?? fallback
+                    ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:30:20: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        rgbSplit = CIKernel(source: Self.kRgbSplit) ?? fallback
+                   ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:31:18: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        slices = CIKernel(source: Self.kSlices) ?? fallback
+                 ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:32:23: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        staticNoise = CIKernel(source: Self.kStatic) ?? fallback
+                      ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:33:15: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        vhs = CIKernel(source: Self.kVHS) ?? fallback
+              ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:34:20: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        edgeXray = CIKernel(source: Self.kXRay) ?? fallback
+                   ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:35:21: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        lensFlare = CIKernel(source: Self.kFlare) ?? fallback
+                    ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:36:17: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        smear = CIKernel(source: Self.kSmear) ?? fallback
+                ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CIKernels.swift:37:21: warning: 'init(source:)' was deprecated in iOS 12.0: Core Image Kernel Language API deprecated. (Define CI_SILENCE_GL_DEPRECATION to silence these warnings)
+        punchMono = CIKernel(source: Self.kPunchMono) ?? fallback
+                    ^
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CanvasRenderer.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Render/CompositionFactory.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift:43:10: warning: 'onChange(of:perform:)' was deprecated in iOS 17.0: Use `onChange` with a two or zero parameter action closure instead.
+        .onChange(of: sync.currentTime) { t in
+         ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorScreen.swift:227:21: warning: result of call to 'selectClip(at:on:)' is unused
+            session.selectClip(at: session.playhead)
+                    ^         ~~~~~~~~~~~~~~~~~~~~~~
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift:58:19: warning: value 'selected' was defined but never used; consider replacing with boolean test
+        guard let selected = session.selectedClip else { return .none }
+              ~~~~^~~~~~~~~~~
+                                                  != nil
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift:103:17: warning: call to method 'subjectStateForSave' in closure requires explicit use of 'self' to make capture semantics explicit; this is an error in the Swift 6 language mode
+                subjectStateForSave()
+                ^
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Editor/EditorSessionBridge.swift:101:42: warning: immutable value 'self' was never used; consider replacing with '_' or removing it
+            guard !Task.isCancelled, let self else { return }
+                                     ~~~~^~~~
+                                     _
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Export/ExportView.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/kino-video/kino-video/Kino/Kino/Core/FixtureFactory.swift (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    
+/Users/runner/work/kino-video/kino-video/Kino/Kino/Core/FixtureFactory.swift:85:32: warning: no calls to throwing functions occur within 'try' expression
+        } else if let loaded = try? store.load(UUID(uuidString: "00000000-0000-0000-0000-000000000001")!) {
+                               ^
+
+SwiftDriverJobDiscovery normal arm64 Compiling CIKernels.swift, CanvasRenderer.swift, CompositionFactory.swift, EditorScreen.swift, EditorSessionBridge.swift, ExportView.swift, FixtureFactory.swift (in target 'Kino' from project 'Kino')
+
+SwiftDriverJobDiscovery normal arm64 Compiling HomeScreen.swift, KinoApp.swift, KinoCompositor.swift, KinoExporter.swift, KinoMediaPicker.swift, MediaImporter.swift, PreviewEngine.swift (in target 'Kino' from project 'Kino')
+
+ExtractAppIntentsMetadata (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name KinoEngine --sdk-root /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk --xcode-version 16F6 --platform-family iOS --deployment-target 17.0 --bundle-identifier kinoengine.KinoEngine --output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.appintents --target-triple arm64-apple-ios17.0-simulator --target-triple x86_64-apple-ios17.0-simulator --binary-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.o --dependency-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine_dependency_info.dat --dependency-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine_dependency_info.dat --stringsdata-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftFileList --source-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftFileList --metadata-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/KinoEngine.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.SwiftConstValuesFileList --swift-const-vals-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-08-24 21:52:17.996 appintentsmetadataprocessor[14255:45515] Starting appintentsmetadataprocessor export
+2026-08-24 21:52:18.039 appintentsmetadataprocessor[14255:45515] Extracted no relevant App Intents symbols, skipping writing output
+
+SwiftDriver\ Compilation Kino normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-Swift-Compilation -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Kino -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino-Swift.h -working-directory /Users/runner/work/kino-video/kino-video -experimental-emit-module-separately -disable-cmo
+
+RegisterExecutionPolicyException /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.o (in target 'KinoEngine' from project 'KinoEngine')
+    cd /Users/runner/work/kino-video/kino-video/KinoEngine
+    builtin-RegisterExecutionPolicyException /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/KinoEngine.o
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/__preview.dylib normal x86_64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -install_name @rpath/Kino.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_dependency_info.dat -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/__preview.dylib
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/__preview.dylib normal arm64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -install_name @rpath/Kino.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_dependency_info.dat -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/__preview.dylib
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino.debug.dylib normal arm64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -filelist /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.LinkFileList -install_name @rpath/Kino.debug.dylib -Xlinker -rpath -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.swiftmodule -Wl,-no_warn_duplicate_libraries -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino.debug.dylib -Xlinker -add_ast_path -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/arm64/KinoEngine.swiftmodule
+
+ProcessInfoPlistFile /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Info.plist /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/empty-Kino.plist (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-infoPlistUtility /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/empty-Kino.plist -producttype com.apple.product-type.application -genpkginfo /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Info.plist
+
+ConstructStubExecutorLinkFileList /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-ExecutorLinkFileList-normal-arm64.txt (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    construct-stub-executor-link-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino.debug.dylib /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Kino' from project 'Kino')
+
+CreateUniversalBinary /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/__preview.dylib normal arm64\ x86_64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/__preview.dylib /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/__preview.dylib -output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/__preview.dylib
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino normal arm64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-ExecutorLinkFileList-normal-arm64.txt /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino.debug.dylib -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino
+
+SwiftDriverJobDiscovery normal x86_64 Compiling PreviewMediaCache.swift, ProjectStore.swift, StickerAtlas.swift, TextRasterizer.swift, Theme.swift, TimeBridging.swift, TimelineView.swift (in target 'Kino' from project 'Kino')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling CIKernels.swift, CanvasRenderer.swift, CompositionFactory.swift, EditorScreen.swift, EditorSessionBridge.swift, ExportView.swift, FixtureFactory.swift (in target 'Kino' from project 'Kino')
+
+SwiftDriver\ Compilation Kino normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-Swift-Compilation -- /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Kino -Onone -enforce-exclusivity\=checked @/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/kino-video/kino-video/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-96ae0914227b19deccb34b33ba7b5dea.sdkstatcache -output-file-map /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/kino-video/kino-video/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-generated-files.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-own-target-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino-0bb4cae766d95266376995a73716ab11-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-project-headers.hmap -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino-Swift.h -working-directory /Users/runner/work/kino-video/kino-video -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino.debug.dylib normal x86_64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -filelist /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.LinkFileList -install_name @rpath/Kino.debug.dylib -Xlinker -rpath -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.swiftmodule -Wl,-no_warn_duplicate_libraries -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino.debug.dylib -Xlinker -add_ast_path -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/KinoEngine.build/Debug-iphonesimulator/KinoEngine.build/Objects-normal/x86_64/KinoEngine.swiftmodule
+
+CreateUniversalBinary /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Kino.debug.dylib normal arm64\ x86_64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino.debug.dylib /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino.debug.dylib -output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Kino.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-ExecutorLinkFileList-normal-x86_64.txt (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    construct-stub-executor-link-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino.debug.dylib /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-ExecutorLinkFileList-normal-x86_64.txt
+note: Using stub executor library with Swift entry point. (in target 'Kino' from project 'Kino')
+
+Ld /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino normal x86_64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -isysroot /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibPath-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-DebugDylibInstallName-normal-x86_64.txt -Xlinker -filelist -Xlinker /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino-ExecutorLinkFileList-normal-x86_64.txt /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino.debug.dylib -o /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino
+
+CreateUniversalBinary /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Kino normal arm64\ x86_64 (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Binary/Kino /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Binary/Kino -output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Kino
+
+CopySwiftLibs /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Kino.debug.dylib --scan-folder /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Frameworks --scan-folder /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/PlugIns --scan-folder /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/SystemExtensions --scan-folder /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Kino --sdk-root /Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk --xcode-version 16F6 --platform-family iOS --deployment-target 17.0 --bundle-identifier studio.kino.app --output /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app --target-triple arm64-apple-ios17.0-simulator --target-triple x86_64-apple-ios17.0-simulator --binary-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Kino --dependency-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino_dependency_info.dat --dependency-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino_dependency_info.dat --stringsdata-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftFileList --source-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftFileList --metadata-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/arm64/Kino.SwiftConstValuesFileList --swift-const-vals-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Objects-normal/x86_64/Kino.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-08-24 21:52:20.026 appintentsmetadataprocessor[14275:45627] Starting appintentsmetadataprocessor export
+2026-08-24 21:52:20.029 appintentsmetadataprocessor[14275:45627] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Info.plist --temp-dir-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/ssu --bundle-id studio.kino.app --product-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app --extracted-metadata-path /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app/Metadata.appintents --metadata-file-list /Users/runner/work/kino-video/kino-video/DerivedData/Build/Intermediates.noindex/Kino.build/Debug-iphonesimulator/Kino.build/Kino.DependencyMetadataFileList --archive-ssu-assets
+2026-08-24 21:52:20.055 appintentsnltrainingprocessor[14276:45628] Parsing options for appintentsnltrainingprocessor
+2026-08-24 21:52:20.056 appintentsnltrainingprocessor[14276:45628] No AppShortcuts found - Skipping.
+
+RegisterExecutionPolicyException /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-RegisterExecutionPolicyException /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app
+
+Validate /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    builtin-validationUtility /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app -infoplist-subpath Info.plist
+
+Touch /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app (in target 'Kino' from project 'Kino')
+    cd /Users/runner/work/kino-video/kino-video
+    /usr/bin/touch -c /Users/runner/work/kino-video/kino-video/DerivedData/Build/Products/Debug-iphonesimulator/Kino.app
+
+** BUILD SUCCEEDED **
+

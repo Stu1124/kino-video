@@ -1,0 +1,26 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "DB7A4F45-473E-4AFF-B207-43FBCE9682DE",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "03A31B9C-9CB9-45B0-9F5E-B571EA8573EF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "00-home-boot_0_F1592183-DA7E-4308-BE34-A520D793656E.png",
+        "timestamp" : 1787608658.182
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "DB7A4F45-473E-4AFF-B207-43FBCE9682DE",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "6BD1D71E-A4CA-443B-BCAE-E7057BF0CA0B.mp4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Screen Recording 2026-08-24 at 09.56.52 PM.mp4",
+        "timestamp" : 1787608612.257
+      }
+    ],
+    "testIdentifier" : "ScreenshotBrowser/testFullWalkthrough()",
+    "testIdentifierURL" : "test://com.apple.xcode/Kino/KinoUITests/ScreenshotBrowser/testFullWalkthrough"
+  }
+]
