@@ -5,7 +5,10 @@ import KinoEngine
 
 public extension KTime {
     init(_ t: CMTime) {
-        self.ns = Int64((t.seconds * 1_000_000_000).rounded())
+        var s = t.seconds
+        if !s.isFinite { s = 0 }
+        let sec = s
+        self = KTime(ns: Int64((sec * 1_000_000_000).rounded()))
     }
 
     var cmTime: CMTime {
