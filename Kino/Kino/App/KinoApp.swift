@@ -27,11 +27,11 @@ struct RootView: View {
                 SplashView()
                     .onAppear {
                         #if DEBUG
-                        if ProcessInfo.processInfo.arguments.contains("--fixtures") {
-                            _ = FixtureFactory.ensure()
-                        }
-                        if ProcessInfo.processInfo.arguments.contains("--demoproject") {
-                            FixtureFactory.ensure()
+                        let args = ProcessInfo.processInfo.arguments
+                        if args.contains("--fixtures") || args.contains("--demoproject") {
+                            Task.detached(priority: .utility) {
+                                _ = FixtureFactory.ensure()
+                            }
                         }
                         #endif
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

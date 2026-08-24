@@ -16,6 +16,13 @@ public enum FixtureFactory {
         public var projectID: UUID
     }
 
+    /// Generates fixtures off the main thread (watchdog safety). Returns when done.
+    public static func ensureAsync() async -> Fixtures? {
+        return await Task.detached(priority: .utility) { () -> Fixtures? in
+            ensure()
+        }.value
+    }
+
     public static func ensure() -> Fixtures? {
         let fm = FileManager.default
         let base = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -27,8 +34,8 @@ public enum FixtureFactory {
         let img = base.appendingPathComponent("fixture-img.jpg")
         let wav = base.appendingPathComponent("fixture-tone.wav")
 
-        if !fm.fileExists(atPath: a.path) { writeVideo(url: a, seconds: 5, color: UIColor.systemMint, label: "SUNLIGHT") }
-        if !fm.fileExists(atPath: b.path) { writeVideo(url: b, seconds: 4, color: UIColor.systemOrange, label: "WARM") }
+        if !fm.fileExists(atPath: a.path) { writeVideo(url: a, seconds: 2, color: UIColor.systemMint, label: "SUNLIGHT") }
+        if !fm.fileExists(atPath: b.path) { writeVideo(url: b, seconds: 2, color: UIColor.systemOrange, label: "WARM") }
         if !fm.fileExists(atPath: img.path) { writeImage(url: img) }
         if !fm.fileExists(atPath: wav.path) { writeTone(url: wav, seconds: 4) }
 
@@ -83,7 +90,7 @@ public enum FixtureFactory {
 
     private static func writeVideo(url: URL, seconds: Double, color: UIColor, label: String) {
         let fps = 30
-        let w = 640, h = 360
+        let w = 480, h = 270
         try? FileManager.default.removeItem(at: url)
         guard let writer = try? AVAssetWriter(outputURL: url, fileType: .mov) else { return }
         let settings: [String: Any] = [
