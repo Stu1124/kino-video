@@ -1,3 +1,4 @@
+import SwiftUI
 #if DEBUG
 import Foundation
 #endif

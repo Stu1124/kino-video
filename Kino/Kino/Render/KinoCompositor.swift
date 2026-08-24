@@ -140,8 +140,7 @@ final class KinoCompositor: NSObject, AVVideoCompositing {
     var requiredPixelBufferAttributesForRenderContext: [String: Any] = [
         kCVPixelBufferPixelFormatTypeKey as String: [kCVPixelFormatType_32BGRA,
                                                      kCVPixelFormatType_64RGBAHalf,
-                                                     kCVPixelFormatType_64ABGRHalf,
-                                                     kCVPixelFormatType_422YpCbCr10,
+                                                                                                          kCVPixelFormatType_422YpCbCr10,
                                                      kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange],
     ]
 
