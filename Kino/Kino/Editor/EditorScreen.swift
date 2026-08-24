@@ -104,7 +104,7 @@ struct EditorScreen: View {
             Button {
                 showExport = true
             } label: {
-                Text("Export")
+                Text("Export").accessibilityIdentifier("export-button")
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 14)
@@ -184,6 +184,7 @@ struct EditorScreen: View {
             .background(RoundedRectangle(cornerRadius: 10).fill(activeTool == label ? KinoTheme.ink3 : Color.clear))
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("tool-\(label)")
     }
 
     private var activeTool: String? {

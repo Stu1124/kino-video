@@ -105,6 +105,7 @@ struct HomeScreen: View {
             .background(KinoTheme.ink1, in: RoundedRectangle(cornerRadius: 18))
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("new-project-button")
     }
 
     private var emptyState: some View {
