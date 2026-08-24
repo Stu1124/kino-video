@@ -49,17 +49,17 @@ public enum FixtureFactory {
                 MediaAsset(uri: wav.absoluteString, kind: .audio, name: "Tone",
                            duration: KTime(seconds: 4), audioTrackPresent: true),
             ]
-            let v1 = Clip(kind: .video, assetID: project.assets[0].id, name: "Sunlight", start: .zero,
+            let v1 = Clip(name: "Sunlight", kind: .video, assetID: project.assets[0].id, start: .zero,
                           sourceRange: TimeRange(start: .zero, duration: KTime(seconds: 5)),
                           speed: SpeedSpec(rate: 1))
             project.tracks[0].clips = [v1]
             project.tracks.append(Track(kind: .audio, name: "Music", clips: [
-                Clip(kind: .audio, assetID: project.assets[3].id, name: "Tone", start: .zero,
+                Clip(name: "Tone", kind: .audio, assetID: project.assets[3].id, start: .zero,
                      sourceRange: TimeRange(start: .zero, duration: KTime(seconds: 4)),
                      audio: AudioSpec(volume: 0.5)),
             ]))
             project.tracks.append(Track(kind: .text, name: "Text", clips: [
-                Clip(kind: .text, name: "Title", start: KTime(milliseconds: 500),
+                Clip(name: "Title", kind: .text, start: KTime(milliseconds: 500),
                      sourceRange: TimeRange(start: .zero, duration: KTime(seconds: 3)),
                      text: {
                          var t = TextContent(string: "Hello Kino")

@@ -80,7 +80,7 @@ final class CompositionFactory {
         videoComp.customVideoCompositorClass = KinoCompositor.self
         videoComp.renderSize = CGSize(width: CGFloat(vSize.x) * CGFloat(renderScale),
                                       height: CGFloat(vSize.y) * CGFloat(renderScale))
-        videoComp.frameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.den * max(1, Int(fps.num / fps.den == 0 ? 1 : fps.num))))
+        videoComp.frameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.den * Int64(max(1, fps.num / max(fps.den, 1)))))
         // frame duration = 1/fps exact rational
         let frameDurUnits: Int64 = fps.num
         let frameDurScale: Int64 = fps.den

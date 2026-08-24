@@ -339,7 +339,7 @@ final class CanvasRenderer {
         case "Glitch":
             if effect.specID == "kino.glitch.shift" {
                 return CIKernels.shared.k("rgbSplit").apply(extent: extent, roiCallback: { $1.insetBy(dx: -100, dy: -100) },
-                                                            arguments: [image, Float(amt * p("shift")), CIVector(x: 1, y: 0), CGFloat(time)]) ?? image
+                                                            arguments: [image, Float(amt) * p("shift"), CIVector(x: 1, y: 0), CGFloat(time)]) ?? image
             }
             if effect.specID == "kino.glitch.slices" {
                 return CIKernels.shared.k("slices").apply(extent: extent, roiCallback: { $1.insetBy(dx: -60, dy: -60) },

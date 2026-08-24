@@ -154,7 +154,7 @@ struct EditorScreen: View {
     private var toolRail: some View {
         HStack(spacing: 14) {
             toolButton("photo.badge.plus", "Add Media") { showPicker = true }
-            toolButton("textformat", "Text") { sync.selectTextTool(); setTool(.text) }
+            toolButton("textformat", "Text") { setTool(.text) }
             toolButton("waveform", "Audio") { setTool(.volume) }
             toolButton("speedometer", "Speed") { setTool(.speed) }
             toolButton("slider.horizontal.3", "Adjust") { setTool(.filters) }
@@ -211,12 +211,12 @@ struct EditorScreen: View {
                 var clips = p.tracks[0].clips
                 let start = p.duration
                 for asset in added where asset.kind == .video {
-                    let c = Clip(kind: .video, assetID: asset.id, name: asset.name,
+                    let c = Clip(name: asset.name, kind: .video, assetID: asset.id,
                                  start: start, sourceRange: TimeRange(start: .zero, duration: asset.duration ?? KTime(seconds: 5)))
                     clips.append(c)
                 }
                 for asset in added where asset.kind == .image {
-                    let c = Clip(kind: .image, assetID: asset.id, name: asset.name,
+                    let c = Clip(name: asset.name, kind: .image, assetID: asset.id,
                                  start: start, sourceRange: TimeRange(start: .zero, duration: KTime(seconds: 4)))
                     clips.append(c)
                 }
@@ -330,8 +330,9 @@ struct BoxedOverlayView: View {
     var body: some View {
         GeometryReader { geo in
             let size = geo.size
+            let canvas2 = KVec2(Float(size.width), Float(size.height))
             let scaleBase = KFitMath.fillScale(asset: frame.assetSize ?? KVec2(1, 1),
-                                               canvas: KVec2(size.width, size.height)) * frame.transform.scale
+                                               canvas: canvas2) * frame.transform.scale
             let cw = (frame.assetSize?.x ?? 1) * scaleBase
             let ch = (frame.assetSize?.y ?? 1) * scaleBase
             let cx = frame.transform.center.x * size.width
