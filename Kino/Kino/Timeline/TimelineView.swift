@@ -292,7 +292,8 @@ struct ClipCellView: View {
         guard let uri = urlStringForAsset else { return }
         if clip.kind == .video {
             let frames = min(20, max(4, Int(CGFloat(clip.duration.seconds) * ppx / 26)))
-            ThumbnailService.shared.filmstrip(uri: uri, sourceRange: clip.sourceRange, duration: clip.duration, frames: frames) { images in
+            ThumbnailService.shared.filmstrip(uri: uri, sourceRange: clip.sourceRange, duration: clip.duration,
+                                              frames: frames, maxSize: CGSize(width: 120, height: 90)) { images in
                 fibers = images
             }
         } else {

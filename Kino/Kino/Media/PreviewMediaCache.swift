@@ -98,7 +98,7 @@ public final class ThumbnailService {
             let url2 = URL(string: uri)
             guard let url2 else { return }
             let asset = AVURLAsset(url: url2)
-            let gen = AVAssetImageGenerator(asset: asset)
+            let gen: AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
             gen.appliesPreferredTrackTransform = true
             gen.maximumSize = maxSize
             gen.requestedTimeToleranceBefore = .zero
@@ -163,7 +163,7 @@ public final class WaveformService {
     public static let shared = WaveformService()
 
     public func waveform(uri: String) async -> AudioWaveform? {
-        await Task.detached(qos: .utility) { () -> AudioWaveform? in
+        await Task.detached(priority: .utility) { () -> AudioWaveform? in
             guard let url = URL(string: uri) else { return nil }
             let asset = AVURLAsset(url: url)
             guard let track = try? await asset.loadTracks(withMediaType: .audio).first else {
@@ -178,7 +178,7 @@ public final class WaveformService {
             ]
             let output = AVAssetReaderTrackOutput(track: track, outputSettings: settings)
             output.alwaysCopiesSampleData = false
-            guard reader.canAdd(output) else { return }
+            guard reader.canAdd(output) else { return nil }
             reader.add(output)
             reader.startReading()
             var samples: [Float] = []
