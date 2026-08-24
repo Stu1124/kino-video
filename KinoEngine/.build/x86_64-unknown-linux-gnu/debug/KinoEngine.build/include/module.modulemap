@@ -1,0 +1,3 @@
+module KinoEngine {
+    header "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/include/KinoEngine-Swift.h"
+}

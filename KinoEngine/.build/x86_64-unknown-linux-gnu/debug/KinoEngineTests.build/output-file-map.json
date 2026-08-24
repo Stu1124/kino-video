@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/primary.swiftdeps"
+  },
+  "/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.dia"
+  }
+}

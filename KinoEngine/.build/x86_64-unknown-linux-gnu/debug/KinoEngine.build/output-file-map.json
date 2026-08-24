@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/primary.swiftdeps"
+  },
+  "/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.dia"
+  }
+}

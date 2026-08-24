@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/primary.swiftdeps"
+  },
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/KinoEngineTests.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.dia"
+  },
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/all-discovered-tests.swift": {
+    "dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.d",
+    "object": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.swift.o",
+    "swiftmodule": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests~partial.swiftmodule",
+    "swift-dependencies": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.swiftdeps",
+    "diagnostics": "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.dia"
+  }
+}

@@ -1,0 +1,164 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "KinoEngine-x86_64-unknown-linux-gnu-debug.module": ["<KinoEngine-x86_64-unknown-linux-gnu-debug.module>"]
+  "KinoEnginePackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module": ["<KinoEnginePackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module>"]
+  "KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.module": ["<KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.module>"]
+  "KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.test": ["<KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.test>"]
+  "KinoEngineTests-x86_64-unknown-linux-gnu-debug.module": ["<KinoEngineTests-x86_64-unknown-linux-gnu-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<KinoEngine-x86_64-unknown-linux-gnu-debug.module>"]
+  "test": ["<KinoEngine-x86_64-unknown-linux-gnu-debug.module>","<KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.test>","<KinoEngineTests-x86_64-unknown-linux-gnu-debug.module>"]
+default: "main"
+nodes:
+  "/root/kino-video/KinoEngine/Sources/KinoEngine/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/root/kino-video/KinoEngine/Tests/KinoEngineTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KinoEngine.swiftmodule.o":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KinoEngine.swiftmodule.o"]
+    description: "Wrapping AST for KinoEngine for debugging"
+    args: ["/opt/swift/usr/bin/swiftc","-modulewrap","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule","-o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KinoEngine.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/sources"]
+    description: "Write auxiliary file /root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/sources"
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEnginePackageDiscoveredTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageDiscoveredTests.swiftmodule"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEnginePackageDiscoveredTests.swiftmodule.o"]
+    description: "Wrapping AST for KinoEnginePackageDiscoveredTests for debugging"
+    args: ["/opt/swift/usr/bin/swiftc","-modulewrap","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageDiscoveredTests.swiftmodule","-o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEnginePackageDiscoveredTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/KinoEngineTests.swift","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/all-discovered-tests.swift"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/sources"]
+    description: "Write auxiliary file /root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/sources"
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/all-discovered-tests.swift":
+    tool: test-discovery-tool
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/KinoEngineTests.swift","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/all-discovered-tests.swift"]
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/KinoEnginePackageTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageTests.swiftmodule"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/KinoEnginePackageTests.swiftmodule.o"]
+    description: "Wrapping AST for KinoEnginePackageTests for debugging"
+    args: ["/opt/swift/usr/bin/swiftc","-modulewrap","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageTests.swiftmodule","-o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/KinoEnginePackageTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.derived/runner.swift"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/sources"]
+    description: "Write auxiliary file /root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/sources"
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageDiscoveredTests.swiftmodule"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.derived/runner.swift"]
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KinoEngine.swiftmodule.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEnginePackageDiscoveredTests.swiftmodule.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/KinoEnginePackageTests.swiftmodule.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/runner.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KinoEngineTests.swiftmodule.o"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.product/Objects.LinkFileList"
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KinoEngineTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KinoEngineTests.swiftmodule.o"]
+    description: "Wrapping AST for KinoEngineTests for debugging"
+    args: ["/opt/swift/usr/bin/swiftc","-modulewrap","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule","-o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KinoEngineTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/sources"]
+    description: "Write auxiliary file /root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/sources"
+
+  "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/opt/swift/usr/bin/swiftc"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt"
+
+  "<KinoEngine-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule"]
+    outputs: ["<KinoEngine-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "<KinoEnginePackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageDiscoveredTests.swiftmodule"]
+    outputs: ["<KinoEnginePackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "<KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/runner.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageTests.swiftmodule"]
+    outputs: ["<KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "<KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.test>":
+    tool: phony
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.xctest"]
+    outputs: ["<KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.test>"]
+
+  "<KinoEngineTests-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule"]
+    outputs: ["<KinoEngineTests-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "C.KinoEngine-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/Sources/KinoEngine/CoreTime/KTime.swift","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/sources"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule"]
+    description: "Compiling Swift Module 'KinoEngine' (1 sources)"
+    args: ["/opt/swift/usr/bin/swiftc","-module-name","KinoEngine","-emit-dependencies","-emit-module","-emit-module-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule","-output-file-map","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/output-file-map.json","-parse-as-library","-incremental","-c","@/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/sources","-I","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-j2","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/include/KinoEngine-Swift.h","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","kinoengine","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KinoEnginePackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/KinoEngineTests.swift","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.derived/all-discovered-tests.swift","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/sources"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageDiscoveredTests.swiftmodule"]
+    description: "Compiling Swift Module 'KinoEnginePackageDiscoveredTests' (2 sources)"
+    args: ["/opt/swift/usr/bin/swiftc","-module-name","KinoEnginePackageDiscoveredTests","-emit-dependencies","-emit-module","-emit-module-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageDiscoveredTests.swiftmodule","-output-file-map","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/sources","-I","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j2","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/include/KinoEnginePackageDiscoveredTests-Swift.h","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","kinoengine","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.derived/runner.swift","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageDiscoveredTests.swiftmodule","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/sources"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/runner.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'KinoEnginePackageTests' (1 sources)"
+    args: ["/opt/swift/usr/bin/swiftc","-module-name","KinoEnginePackageTests","-emit-dependencies","-emit-module","-emit-module-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEnginePackageTests.swiftmodule","-output-file-map","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/sources","-I","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j2","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/include/KinoEnginePackageTests-Swift.h","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","kinoengine","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KinoEnginePackageTests-x86_64-unknown-linux-gnu-debug.test":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KTime.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngine.build/KinoEngine.swiftmodule.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEnginePackageDiscoveredTests.swiftmodule.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/KinoEngineTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageDiscoveredTests.build/all-discovered-tests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/KinoEnginePackageTests.swiftmodule.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/runner.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KinoEngineTests.swiftmodule.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.product/Objects.LinkFileList"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.xctest"]
+    description: "Linking ./.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.xctest"
+    args: ["/opt/swift/usr/bin/swiftc","-L","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug","-o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.xctest","-module-name","KinoEnginePackageTests","-emit-executable","-Xlinker","-rpath=$ORIGIN","@/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-g"]
+
+  "C.KinoEngineTests-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/root/kino-video/KinoEngine/Tests/KinoEngineTests/KTimeTests.swift","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/swift-version-6A52383ED409C6A7.txt","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngine.swiftmodule","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/sources"]
+    outputs: ["/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/KTimeTests.swift.o","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule"]
+    description: "Compiling Swift Module 'KinoEngineTests' (1 sources)"
+    args: ["/opt/swift/usr/bin/swiftc","-module-name","KinoEngineTests","-emit-dependencies","-emit-module","-emit-module-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules/KinoEngineTests.swiftmodule","-output-file-map","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEngineTests.build/sources","-I","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j2","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","kinoengine","-Xcc","-fno-omit-frame-pointer"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/root/kino-video/KinoEngine/Sources/KinoEngine/","/root/kino-video/KinoEngine/Tests/KinoEngineTests/","/root/kino-video/KinoEngine/Package.swift","/root/kino-video/KinoEngine/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

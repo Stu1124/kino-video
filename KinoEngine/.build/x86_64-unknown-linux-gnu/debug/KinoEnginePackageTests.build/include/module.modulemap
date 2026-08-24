@@ -1,0 +1,3 @@
+module KinoEnginePackageTests {
+    header "/root/kino-video/KinoEngine/.build/x86_64-unknown-linux-gnu/debug/KinoEnginePackageTests.build/include/KinoEnginePackageTests-Swift.h"
+}

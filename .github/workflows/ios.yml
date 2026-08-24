@@ -1,0 +1,75 @@
+name: iOS CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  engine-tests:
+    name: KinoEngine tests (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swift version
+        run: swift --version
+      - name: Build & test engine
+        run: swift test --package-path KinoEngine
+
+  ios-build-test:
+    name: Kino iOS build + simulator tests
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: |
+          ls /Applications | grep -i xcode || true
+          sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app || true
+          xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Boot simulator
+        run: |
+          xcrun simctl list devices available | head -60
+          DEV=$(xcrun simctl list devices available | grep -iE "iPhone 1[7-9]|iPhone 16" | sed -n '1p')
+          echo "device line: $DEV"
+          echo "SIM_NAME=$(echo "$DEV" | sed -E 's/^   ([^(]*)\(([0-9A-F-]{36})\).*/\1/')" >> "$GITHUB_ENV"
+      - name: Build app (simulator)
+        run: |
+          xcodebuild -project Kino.xcodeproj -scheme Kino \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath DerivedData \
+            CODE_SIGNING_ALLOWED=NO build | tail -5
+      - name: Run unit + UI tests with screenshots
+        run: |
+          xcodebuild -project Kino.xcodeproj -scheme Kino \
+            -destination "platform=iOS Simulator,name=iPhone 16 Pro" \
+            -derivedDataPath DerivedData \
+            -resultBundlePath TestResults.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            test | tail -40
+      - name: Export screenshot attachments
+        if: always()
+        run: |
+          mkdir -p Screenshots
+          if [ -d TestResults.xcresult ]; then
+            xcrun xcresulttool export attachments --path TestResults.xcresult --output-path Screenshots 2>/dev/null || true
+            ls -la Screenshots | head -40
+          fi
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kino-artifacts
+          path: |
+            Screenshots
+            TestResults.xcresult
+            DerivedData/Build/Products/Debug-iphonesimulator/Kino.app
+          retention-days: 7
