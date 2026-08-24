@@ -43,8 +43,9 @@ final class ScreenshotBrowser: XCTestCase {
         XCTAssertTrue(app.buttons["export-button"].waitForExistence(timeout: 20))
         snap("editor-default")
 
-        // Tap timeline clip (add media button row area taps nothing; the clip is in main track)
-        if let timeline = app.otherElements["timeline-ui"] {
+        // Timeline exists: scrub a bit
+        let timeline = app.otherElements["timeline-ui"]
+        if timeline.exists {
             timeline.swipeRight()
         }
         sleep(1)
