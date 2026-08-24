@@ -202,12 +202,12 @@ struct TimelineView: View {
     private var rulerDragGesture: some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged { g in
-                sync.session.isScrubbingPreview = true
+                sync.isScrubbingPreview = true
                 let tm = timeAt(localX: g.location.x)
                 sync.setPlayhead(tm)
             }
             .onEnded { _ in
-                sync.session.isScrubbingPreview = false
+                sync.isScrubbingPreview = false
             }
     }
 
@@ -265,42 +265,55 @@ struct ClipCellView: View {
     var body: some View {
         ZStack {
             thumbnailStrip
-            VStack {
-                Spacer()
-                HStack {
-                    Image(systemName: icon)
-                        .font(.system(size: 8))
-                        .foregroundStyle(.white.opacity(0.9))
-                    Text(clip.name)
-                        .lineLimit(1)
-                        .font(.system(size: 8, weight: .medium))
-                        .foregroundStyle(.white.opacity(0.9))
-                    Spacer()
-                }
-                .padding(3)
-                .background(.black.opacity(0.45), in: RoundedRectangle(cornerRadius: 3))
-            }
-            .padding(2)
+            clipCaption
         }
         .background(clipColor)
         .clipShape(RoundedRectangle(cornerRadius: 6))
         .overlay(
             RoundedRectangle(cornerRadius: 6)
-                .stroke(sync.session.selectedClipID == clip.id ? KinoTheme.accent : Color.clear, lineWidth: 2)
+                .stroke(borderColor, lineWidth: 2)
         )
-        .task(id: "\(clip.assetID?.uuidString ?? clip.id.uuidString)-\(clip.sourceRange.start.ns)-\(clip.sourceRange.end.ns)") {
-            guard clip.kind == .video || clip.kind == .image, let uri = urlStringForAsset else { return }
-            if clip.kind == .video {
-                ThumbnailService.shared.filmstrip(uri: uri, sourceRange: clip.sourceRange, duration: clip.duration,
-                                                  frames: min(20, max(4, Int(CGFloat(clip.duration.seconds) * ppx / 26)))) { images in
-                    fibers = images
-                }
-            } else {
-                ThumbnailService.shared.thumbnail(targetSize: CGSize(width: 120, height: 120), uri: uri, at: clip.sourceRange.start) { img in
-                    if let img { fibers = [img] }
-                }
+        .task(id: taskID) {
+            loadFibers()
+        }
+    }
+
+    private var borderColor: Color {
+        sync.session.selectedClipID == clip.id ? KinoTheme.accent : Color.clear
+    }
+
+    private var taskID: String {
+        let aid = clip.assetID?.uuidString ?? clip.id.uuidString
+        return "\(aid)-\(clip.sourceRange.start.ns)-\(clip.sourceRange.end.ns)"
+    }
+
+    private func loadFibers() {
+        guard clip.kind == .video || clip.kind == .image else { return }
+        guard let uri = urlStringForAsset else { return }
+        if clip.kind == .video {
+            let frames = min(20, max(4, Int(CGFloat(clip.duration.seconds) * ppx / 26)))
+            ThumbnailService.shared.filmstrip(uri: uri, sourceRange: clip.sourceRange, duration: clip.duration, frames: frames) { images in
+                fibers = images
+            }
+        } else {
+            ThumbnailService.shared.thumbnail(targetSize: CGSize(width: 120, height: 120), uri: uri, at: clip.sourceRange.start) { img in
+                if let img { fibers = [img] }
             }
         }
+    }
+
+    private var clipCaption: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Image(systemName: icon).font(.system(size: 8)).foregroundStyle(.white.opacity(0.9))
+                Text(clip.name).lineLimit(1).font(.system(size: 8, weight: .medium)).foregroundStyle(.white.opacity(0.9))
+                Spacer()
+            }
+            .padding(3)
+            .background(.black.opacity(0.45), in: RoundedRectangle(cornerRadius: 3))
+        }
+        .padding(2)
     }
 
     private var urlStringForAsset: String? {

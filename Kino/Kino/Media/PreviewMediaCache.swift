@@ -85,13 +85,19 @@ public final class ThumbnailService {
         let end = Int64(sourceRange.end.ns)
         let base = "strip-\(uri)#\(start)-\(end)-\(frames)"
         // cached strip bitmap?
-        if let d = cache.data(for: base, ext: "strip"), let bitmaps = decodeStrip(d) {
-            completion(bitmaps)
-            return
+        let cachedRaw: Data? = cache.data(for: base, ext: "strip")
+        if let d = cachedRaw {
+            let bitmaps: [CGImage]? = decodeStrip(d)
+            if let packed = bitmaps {
+                completion(packed)
+                return
+            }
         }
         queue.async { [weak self] in
             guard let self else { return }
-            let asset = AVURLAsset(url: URL(string: uri)!)
+            let url2 = URL(string: uri)
+            guard let url2 else { return }
+            let asset = AVURLAsset(url: url2)
             let gen = AVAssetImageGenerator(asset: asset)
             gen.appliesPreferredTrackTransform = true
             gen.maximumSize = maxSize
@@ -156,14 +162,14 @@ public final class ThumbnailService {
 public final class WaveformService {
     public static let shared = WaveformService()
 
-    public func waveform(uri: String, completion: @escaping (AudioWaveform?) -> Void) {
-        DispatchQueue.global(qos: .utility).async {
-            let asset = AVURLAsset(url: URL(string: uri)!)
-            guard let track = try? asset.loadTracks(withMediaType: .audio).first else {
-                DispatchQueue.main.async { completion(nil) }
-                return
+    public func waveform(uri: String) async -> AudioWaveform? {
+        await Task.detached(qos: .utility) { () -> AudioWaveform? in
+            guard let url = URL(string: uri) else { return nil }
+            let asset = AVURLAsset(url: url)
+            guard let track = try? await asset.loadTracks(withMediaType: .audio).first else {
+                return nil
             }
-            guard let reader = try? AVAssetReader(asset: asset) else { return }
+            guard let reader = try? AVAssetReader(asset: asset) else { return nil }
             let settings: [String: Any] = [
                 AVFormatIDKey: kAudioFormatLinearPCM,
                 AVLinearPCMBitDepthKey: 16,
@@ -191,7 +197,7 @@ public final class WaveformService {
                 }
             }
             let wf = AudioWaveform.fromSamples(samples, sampleRate: 44100, bucketDuration: bucket)
-            DispatchQueue.main.async { completion(wf) }
-        }
+            return wf
+        }.value
     }
 }
