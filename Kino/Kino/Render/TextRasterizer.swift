@@ -23,7 +23,7 @@ enum TextRasterizer {
             let cgc = ctx.cgContext
             let fontScale = CGFloat(text.fontSize) * H
             let baseFont = UIFont(name: text.fontName, size: fontScale) ?? UIFont.systemFont(ofSize: fontScale, weight: text.fontWeight > 0.7 ? .bold : .semibold)
-            let color = color(fromHex: text.colorHex, alpha: text.opacity)
+            let color = color(fromHex: text.colorHex, alpha: CGFloat(text.opacity))
             let para = NSMutableParagraphStyle()
             para.alignment = alignment(text.alignment)
             para.lineSpacing = fontScale * CGFloat(text.lineSpacing)

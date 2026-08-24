@@ -76,23 +76,25 @@ enum StickerAtlas {
     }
 
     private static func render(image: UIImage, tint: UInt32?) -> CIImage? {
-        guard let base = image.ciImage ?? (image.cgImage.map { CIImage(cgImage: $0) }) else { return nil }
-        if let tint {
-            return base.applyingFilter("CIColorInvert", parameters: [:])
-                .applyingFilter("CIColorMatrix", parameters: [
-                    "inputRVector": CIVector(x: 0.2126, y: 0.7152, z: 0.0722, w: 0),
-                    "inputGVector": CIVector(x: 0.2126, y: 0.7152, z: 0.0722, w: 0),
-                    "inputBVector": CIVector(x: 0.2126, y: 0.7152, z: 0.0722, w: 0),
-                    "inputAVector": CIVector(x: 0, y: 0, z: 0, w: 1),
-                    "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
-                ])
-                .applyingFilter("CIMultiplyBlendMode", parameters: [
-                    kCIInputImageKey: CIImage(color: CIColor(red: CGFloat((tint >> 16) & 0xFF) / 255,
-                                                             green: CGFloat((tint >> 8) & 0xFF) / 255,
-                                                             blue: CGFloat(tint & 0xFF) / 255,
-                                                             alpha: 1)),
-                ])
+        let base: CIImage
+        if let ci = image.ciImage {
+            base = ci
+        } else if let cg = image.cgImage {
+            base = CIImage(cgImage: cg)
+        } else {
+            return nil
         }
-        return base
+        guard let tint else { return base }
+        let gray = base.applyingFilter("CIColorMatrix", parameters: [
+            "inputRVector": CIVector(x: 0.2126, y: 0.7152, z: 0.0722, w: 0),
+            "inputGVector": CIVector(x: 0.2126, y: 0.7152, z: 0.0722, w: 0),
+            "inputBVector": CIVector(x: 0.2126, y: 0.7152, z: 0.0722, w: 0),
+            "inputAVector": CIVector(x: 0, y: 0, z: 0, w: 1),
+        ])
+        let r = CGFloat((tint >> 16) & 0xFF) / 255
+        let g = CGFloat((tint >> 8) & 0xFF) / 255
+        let b = CGFloat(tint & 0xFF) / 255
+        let tintColor = CIImage(color: CIColor(red: r, green: g, blue: b, alpha: 1))
+        return gray.applyingFilter("CIMultiplyBlendMode", parameters: [kCIInputImageKey: tintColor])
     }
 }
