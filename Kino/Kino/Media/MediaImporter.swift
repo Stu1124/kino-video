@@ -2,6 +2,7 @@ import AVFoundation
 import Foundation
 import Photos
 import PhotosUI
+import UniformTypeIdentifiers
 import KinoEngine
 
 /// Imports PHAsset media into the app's library folder (copy semantics — durable).
@@ -62,7 +63,7 @@ public final class MediaImporter: ObservableObject {
         case .video:
             let resources = PHAssetResource.assetResources(for: ph)
             guard let resource = resources.first else { return nil }
-            let ext = resource.uniformTypeIdentifier.map { ($0 as NSString).pathExtension.isEmpty ? "mov" : ($0 as NSString).pathExtension } ?? "mov"
+            let ext = UTType(resource.uniformTypeIdentifier)?.preferredFilenameExtension ?? "mov"
             name = "asset-\(UUID().uuidString.prefix(12)).\(ext)"
             target = libraryURL.appendingPathComponent(name)
             try await copyResource(resource, to: target!)
