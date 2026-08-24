@@ -58,11 +58,12 @@ public final class ThumbnailService {
             completion(img)
             return
         }
-        queue.async { [weak self] in
+        queue.async { [weak self] () -> Void in
             guard let self else { return }
-            let url = URL(string: uri)
-            let asset = AVURLAsset(url: url!)
-            let gen = AVAssetImageGenerator(asset: asset)
+            let url2 = URL(string: uri) ?? URL(string: "file:///tmp/x")!
+            guard url2.path.isEmpty == false else { return }
+            let asset = AVURLAsset(url: url2)
+            let gen: AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
             gen.appliesPreferredTrackTransform = true
             gen.maximumSize = targetSize
             gen.requestedTimeToleranceBefore = CMTime(seconds: 0, preferredTimescale: 600)

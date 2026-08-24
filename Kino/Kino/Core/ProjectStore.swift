@@ -41,7 +41,7 @@ public final class ProjectStore: ObservableObject {
 
     @discardableResult
     public func reloadIndex() -> [ProjectSummary] {
-        let files = (try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: [.fileModificationDateKey])) ?? []
+        let files = (try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: [.contentModificationDateKey])) ?? []
         var out: [ProjectSummary] = []
         for f in files where f.pathExtension == "json" {
             guard let data = try? Data(contentsOf: f),
