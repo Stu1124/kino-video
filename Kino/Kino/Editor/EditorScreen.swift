@@ -46,7 +46,7 @@ struct EditorScreen: View {
                     Text("dur=\(String(format: "%.2f", sync.session.project.duration.seconds))s")
                     Text("sel=\(sync.session.selectedClipID != nil)")
                     Text("preview=\(preview.ready ? "ready" : "building")")
-                    Text("comp=\(KinoCompositor.frameInfo.rendered) (KinoCompositor.frameInfo.extentLast)")
+                    Text("comp=" + String(KinoCompositor.frameInfo.rendered) + " " + KinoCompositor.frameInfo.extentLast)
                 }
                 .font(.system(size: 11, weight: .bold))
                 .foregroundStyle(.white)
