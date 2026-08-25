@@ -281,6 +281,7 @@ struct ProjectCard: View {
             }
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("project-card-" + summary.id.uuidString.prefix(6))
         .contextMenu {
             Button("Rename") { onMenu(.rename) }
             Button("Duplicate") { onMenu(.duplicate) }

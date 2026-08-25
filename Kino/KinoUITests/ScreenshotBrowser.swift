@@ -39,7 +39,14 @@ final class ScreenshotBrowser: XCTestCase {
         }
         XCTAssertTrue(sample.exists, "Sample project should exist after fixture generation")
         snap("home-with-sample")
-        sample.tap()
+        // tap the card button (not the inner label) with one retry if home persists
+        let card = app.buttons.matching(identifier: "project-card-").allElementsBoundByIndex.last
+        let open = card ?? sample
+        open.tap()
+        sleep(1)
+        if app.buttons["new-project-button"].exists {
+            open.tap()
+        }
 
         // Editor boots; preview composites
         sleep(5)
