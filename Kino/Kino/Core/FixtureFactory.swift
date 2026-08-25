@@ -35,13 +35,26 @@ public enum FixtureFactory {
         let img = base.appendingPathComponent("fixture-img.jpg")
         let wav = base.appendingPathComponent("fixture-tone.wav")
 
-        if !fm.fileExists(atPath: a.path) { writeVideo(url: a, seconds: 2, color: UIColor.systemMint, label: "SUNLIGHT") }
-        status = "media A ok"
-        if !fm.fileExists(atPath: b.path) { writeVideo(url: b, seconds: 2, color: UIColor.systemOrange, label: "WARM") }
-        status = "media B ok"
-        if !fm.fileExists(atPath: img.path) { writeImage(url: img) }
-        if !fm.fileExists(atPath: wav.path) { writeTone(url: wav, seconds: 4) }
-        status = "media done"
+        // host-provided media wins (deterministic); fall back to on-device synthesis
+        let envDir = ProcessInfo.processInfo.environment["KINO_FIXTURE_DIR"]
+        var copied = false
+        if let envDir, !envDir.isEmpty {
+            let src = URL(fileURLWithPath: envDir)
+            copied = copyIfAvailable(src: src.appendingPathComponent("fixture-a.mov"), dst: a)
+                      && copyIfAvailable(src: src.appendingPathComponent("fixture-b.mov"), dst: b)
+                      && copyIfAvailable(src: src.appendingPathComponent("fixture-img.jpg"), dst: img)
+                      && copyIfAvailable(src: src.appendingPathComponent("fixture-tone.wav"), dst: wav)
+            status = copied ? "host media copied" : "host media missing"
+        }
+        if !copied {
+            if !fm.fileExists(atPath: a.path) { writeVideo(url: a, seconds: 2, color: UIColor.systemMint, label: "SUNLIGHT") }
+            status = "media A ok"
+            if !fm.fileExists(atPath: b.path) { writeVideo(url: b, seconds: 2, color: UIColor.systemOrange, label: "WARM") }
+            status = "media B ok"
+            if !fm.fileExists(atPath: img.path) { writeImage(url: img) }
+            if !fm.fileExists(atPath: wav.path) { writeTone(url: wav, seconds: 4) }
+            status = "media done"
+        }
 
         let store = ProjectStore.shared
         let sampleID = base.appendingPathComponent("fixture-project.json")
@@ -97,6 +110,12 @@ public enum FixtureFactory {
     public static var fixtures: UUID?
 
     // MARK: synth media
+
+    private static func copyIfAvailable(src: URL, dst: URL) -> Bool {
+        guard FileManager.default.fileExists(atPath: src.path) else { return false }
+        try? FileManager.default.removeItem(at: dst)
+        return (try? FileManager.default.copyItem(at: src, to: dst)) != nil
+    }
 
     private static func writeVideo(url: URL, seconds: Double, color: UIColor, label: String) {
         let fps = 30

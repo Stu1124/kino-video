@@ -11,6 +11,9 @@ final class ScreenshotBrowser: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app.launchArguments += ["--uitest", "--fixtures", "--demoproject"]
+        if let fix = ProcessInfo.processInfo.environment["KINO_FIXTURE_DIR"] {
+            app.launchEnvironment["KINO_FIXTURE_DIR"] = fix
+        }
         app.launch()
     }
 

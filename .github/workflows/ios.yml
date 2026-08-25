@@ -35,6 +35,16 @@ jobs:
         run: brew install xcodegen
       - name: Generate project
         run: xcodegen generate
+      - name: Generate fixture media (host side)
+        run: |
+          brew install ffmpeg >/dev/null 2>&1 || true
+          mkdir -p FixtureMedia
+          ffmpeg -y -loglevel error -f lavfi -i "testsrc2=size=640x360:rate=30:duration=4" -pix_fmt yuv420p FixtureMedia/fixture-a.mov
+          ffmpeg -y -loglevel error -f lavfi -i "smptebars=size=640x360:rate=30:duration=3" -pix_fmt yuv420p FixtureMedia/fixture-b.mov
+          ffmpeg -y -loglevel error -f lavfi -i "gradients=size=800x600:duration=1" -frames:v 1 FixtureMedia/fixture-img.jpg
+          ffmpeg -y -loglevel error -f lavfi -i "sine=frequency=440:duration=4" -ac 1 FixtureMedia/fixture-tone.wav
+          ls -la FixtureMedia
+          echo "KINO_FIXTURE_DIR=$PWD/FixtureMedia" >> "$GITHUB_ENV"
       - name: Boot simulator
         run: |
           xcrun simctl list devices available | head -60
@@ -59,6 +69,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
+          export KINO_FIXTURE_DIR="$PWD/FixtureMedia"
           xcodebuild -project Kino.xcodeproj -scheme Kino \
             -destination "platform=iOS Simulator,name=iPhone 16 Pro" \
             -derivedDataPath DerivedData \
