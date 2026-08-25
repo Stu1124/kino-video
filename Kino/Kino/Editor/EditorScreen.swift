@@ -30,10 +30,13 @@ struct EditorScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             topBar
+                .frame(height: 46)
             previewArea
+                .layoutPriority(1)
             toolRail
+                .frame(height: 76)
             TimelineView(sync: sync)
-                .frame(height: 300)
+                .frame(height: 250)
         }
         #if DEBUG
         .overlay(alignment: .bottomLeading) {
@@ -168,8 +171,6 @@ struct EditorScreen: View {
 
     private var previewArea: some View {
         CanvasPreviewView(sync: sync, preview: preview)
-            .frame(maxWidth: .infinity)
-            .background(KinoTheme.ink0)
     }
 
     // MARK: tool rail
@@ -266,7 +267,6 @@ private extension View {
 struct CanvasPreviewView: View {
     @ObservedObject var sync: SyncSession
     @ObservedObject var preview: PreviewEngine
-    @State private var viewSize: CGSize = .zero
     @State private var dragStartCenter: KVec2?
     @State private var dragStartScale: Float = 1
     @State private var dragStartRotation: Float = 0
@@ -274,17 +274,30 @@ struct CanvasPreviewView: View {
 
     var body: some View {
         GeometryReader { geo in
+            let aspect = CGFloat(sync.session.project.canvas.aspect)
+            let canvasSize = CanvasPreviewView.fitted(container: geo.size, aspect: aspect)
             ZStack {
                 VideoPlayer(player: preview.player)
-                    .aspectRatio(CGFloat(sync.session.project.canvas.aspect), contentMode: .fit)
-                    .clipped()
-                    .background(.black)
-                    .onAppear { viewSize = geo.size }
+                    .frame(width: canvasSize.width, height: canvasSize.height)
+                    .cornerRadius(2)
                 overlayManipulationUI
                 playPauseButton
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(width: geo.size.width, height: geo.size.height)
+            .background(KinoTheme.ink0)
         }
+    }
+
+    /// Compute canvas box that fits a container at given aspect (w/h), centered.
+    static func fitted(container: CGSize, aspect: CGFloat) -> CGSize {
+        guard aspect > 0.01 else { return container }
+        let cw = min(container.width, container.height * aspect)
+        let ch = cw / aspect
+        if ch <= container.height {
+            return CGSize(width: cw, height: ch)
+        }
+        let ch2 = min(container.height, container.width / aspect)
+        return CGSize(width: ch2 * aspect, height: ch2)
     }
 
     private var selectedLayerFrame: LayerFrame? {
