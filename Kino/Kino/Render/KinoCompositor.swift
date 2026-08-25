@@ -128,6 +128,16 @@ enum KinoTransition {
 final class KinoCompositor: NSObject, AVVideoCompositing {
     static let shared = KinoCompositor()
 
+    /// Observability for diagnostics (surfaces in editor debug overlay).
+    static let frameInfo = FrameInfoBox()
+    final class FrameInfoBox {
+        var rendered: Int = 0
+        var layersLast: Int = 0
+        var extentLast: String = ""
+        var lastResolution: String = ""
+        var lastDebug: String = ""
+    }
+
     private let renderQueue = DispatchQueue(label: "kino.compositor", qos: .userInitiated)
     private let renderer = CanvasRenderer.shared
     private var context: AVVideoCompositionRenderContext?

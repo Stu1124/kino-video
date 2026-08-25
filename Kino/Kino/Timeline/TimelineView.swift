@@ -57,6 +57,7 @@ struct TimelineView: View {
 
     private var ruler: some View {
         ZStack(alignment: .leading) {
+            Rectangle().fill(KinoTheme.ink2)
             // marks per second
             HStack(spacing: 0) {
                 ForEach(0..<Int(min(projectDuration.seconds, 1800)) + 1, id: \.self) { s in
@@ -92,7 +93,8 @@ struct TimelineView: View {
 
     private func trackRow(trackIndex: Int, track: Track, width: CGFloat) -> some View {
         ZStack(alignment: .leading) {
-            Rectangle().fill(KinoTheme.ink1)
+            Rectangle().fill(KinoTheme.ink2)
+            Rectangle().fill(KinoTheme.hairline).frame(height: 1).frame(maxHeight: .infinity, alignment: .bottom)
             Text(track.name)
                 .font(.system(size: 9, weight: .medium))
                 .foregroundStyle(KinoTheme.textTertiary)
@@ -236,6 +238,7 @@ struct TimelineView: View {
 
     private var addRow: some View {
         HStack {
+            Rectangle().fill(KinoTheme.hairline).frame(height: 1).frame(maxHeight: .infinity, alignment: .top)
             Button { } label: {
                 HStack(spacing: 6) {
                     Image(systemName: "plus").font(.system(size: 12, weight: .semibold))
@@ -326,9 +329,9 @@ struct ClipCellView: View {
     private var clipColor: Color {
         switch clip.kind {
         case .video, .image: return .clear
-        case .audio: return Color(hex: 0x2F3A8C).opacity(0.75)
-        case .text: return KinoTheme.accent.opacity(0.55)
-        case .sticker: return Color(hex: 0xB45BB0).opacity(0.55)
+        case .audio: return Color(hex: 0x3A4CBB).opacity(0.85)
+        case .text: return KinoTheme.accent.opacity(0.7)
+        case .sticker: return Color(hex: 0xB45BB0).opacity(0.7)
         }
     }
 
@@ -356,7 +359,7 @@ struct ClipCellView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         } else {
-            Rectangle().fill(clip.kind == .audio ? Color(hex: 0x2F3A8C) : KinoTheme.ink3)
+            Rectangle().fill(clip.kind == .audio ? Color(hex: 0x3A4CBB) : KinoTheme.ink4)
         }
     }
 }
