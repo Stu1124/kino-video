@@ -275,7 +275,7 @@ struct CanvasPreviewView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                PlayerSurface(player: preview.player)
+                VideoPlayer(player: preview.player)
                     .aspectRatio(CGFloat(sync.session.project.canvas.aspect), contentMode: .fit)
                     .clipped()
                     .background(.black)
@@ -315,26 +315,7 @@ struct CanvasPreviewView: View {
     }
 }
 
-// MARK: - Player surface (AVKit-backed, controls hidden)
 
-final class PlayerSurface: UIViewControllerRepresentable {
-    let player: AVPlayer
-    init(player: AVPlayer) { self.player = player }
-
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        let vc = AVPlayerViewController()
-        vc.player = player
-        vc.showsPlaybackControls = false
-        vc.videoGravity = .resizeAspect
-        return vc
-    }
-
-    func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
-        if vc.player !== player {
-            vc.player = player
-        }
-    }
-}
 
 // MARK: - overlay selection box
 
