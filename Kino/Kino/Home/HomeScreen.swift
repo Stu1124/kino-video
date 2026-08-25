@@ -5,7 +5,7 @@ import KinoEngine
 struct HomeScreen: View {
     @StateObject private var store = ProjectStore.shared
     @StateObject private var importer = MediaImporter()
-    @State private var openProjectID: UUID?
+    @State private var openProject: ProjectOpenToken?
     @State private var showImporter = false
     @State private var importErr: String?
     @State private var showDelete: ProjectStore.ProjectSummary?
@@ -44,8 +44,8 @@ struct HomeScreen: View {
             .background(KinoTheme.backgroundColor)
             .toolbar(.hidden, for: .navigationBar)
         }
-        .fullScreenCover(item: $openProjectID) { id in
-            EditorScreen(projectID: id)
+        .fullScreenCover(item: $openProject) { token in
+            EditorScreen(projectID: token.id)
         }
         .sheet(isPresented: $showImporter) {
             KinoMediaPicker { identifiers in
@@ -166,7 +166,7 @@ struct HomeScreen: View {
             do {
                 let p = try store.createProject(name: defaultProjectName())
                 _ = store.reloadIndex()
-                openProjectID = p.meta.id
+                openProject = ProjectOpenToken(id: p.meta.id)
             } catch {
                 importErr = "Could not create project: \(error.localizedDescription)"
             }
@@ -180,7 +180,7 @@ struct HomeScreen: View {
     }
 
     private func open(_ summary: ProjectStore.ProjectSummary) {
-        openProjectID = summary.id
+        openProject = ProjectOpenToken(id: summary.id)
     }
 
     private func handle(_ summary: ProjectStore.ProjectSummary, action: ProjectContextAction) {
@@ -319,8 +319,7 @@ struct ThumbBox: View {
 }
 
 
-/// Simple Identifiable wrapper bridging UUID -> fullScreenCover(item:)
-struct BindableProject: Identifiable {
-    var item: Binding<UUID?>
-    var id: UUID { item.wrappedValue ?? UUID() }
+/// Identifiable token so UUIDs can drive fullScreenCover.
+struct ProjectOpenToken: Identifiable {
+    var id: UUID
 }
