@@ -38,24 +38,9 @@ struct EditorScreen: View {
             TimelineView(sync: sync)
                 .frame(height: 250)
         }
-        #if DEBUG
         .overlay(alignment: .bottomLeading) {
-            if ProcessInfo.processInfo.arguments.contains("--uitest") {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("clips=\(sync.session.project.allClips().count)")
-                    Text("dur=\(String(format: "%.2f", sync.session.project.duration.seconds))s")
-                    Text("sel=\(sync.session.selectedClipID != nil)")
-                    Text("preview=\(preview.ready ? "ready" : "building")")
-                    Text("comp=" + String(KinoCompositor.frameInfo.rendered) + " " + KinoCompositor.frameInfo.extentLast)
-                }
-                .font(.system(size: 11, weight: .bold))
-                .foregroundStyle(.white)
-                .padding(8)
-                .background(.red.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
-                .accessibilityIdentifier("editor-diag")
-            }
-        }
-        #endif
+            EditorDebugPanel(sync: sync, preview: preview)
+        }.zIndex(999)
         .log("EditorScreen body")
         .background(KinoTheme.backgroundColor)
         .toolbar(.hidden, for: .navigationBar)
@@ -365,5 +350,29 @@ struct BoxedOverlayView: View {
 
     private func dot(_ corner: Alignment) -> some View {
         Circle().fill(KinoTheme.textPrimary).frame(width: 8, height: 8).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: corner)
+    }
+}
+
+
+/// On-screen engine telemetry (dev aid; removed before release).
+struct EditorDebugPanel: View {
+    @ObservedObject var sync: SyncSession
+    @ObservedObject var preview: PreviewEngine
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 1) {
+            Text("clips=\(sync.session.project.allClips().count) dur=\(String(format: "%.2f", sync.session.project.duration.seconds))s")
+            Text("sel=\(sync.session.selectedClipID != nil)")
+            Text("pv=\(preview.ready ? "ready" : "building")")
+            Text("comp=" + String(KinoCompositor.frameInfo.rendered) + " " + KinoCompositor.frameInfo.extentLast)
+            if !KinoCompositor.frameInfo.lastDebug.isEmpty {
+                Text(KinoCompositor.frameInfo.lastDebug)
+            }
+        }
+        .font(.system(size: 10, weight: .bold))
+        .foregroundStyle(.white)
+        .padding(6)
+        .background(.red.opacity(0.85), in: RoundedRectangle(cornerRadius: 6))
+        .accessibilityIdentifier("editor-diag")
     }
 }
