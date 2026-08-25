@@ -315,34 +315,25 @@ struct CanvasPreviewView: View {
     }
 }
 
-// MARK: - Player surface
+// MARK: - Player surface (AVKit-backed, controls hidden)
 
-final class PlayerSurface: UIViewRepresentable {
+final class PlayerSurface: UIViewControllerRepresentable {
     let player: AVPlayer
     init(player: AVPlayer) { self.player = player }
 
-    func makeUIView(context: Context) -> AVPlayerLayerView {
-        let v = AVPlayerLayerView()
-        v.player = player
-        v.videoGravity = .resizeAspect
-        return v
+    func makeUIViewController(context: Context) -> AVPlayerViewController {
+        let vc = AVPlayerViewController()
+        vc.player = player
+        vc.showsPlaybackControls = false
+        vc.videoGravity = .resizeAspect
+        return vc
     }
 
-    func updateUIView(_ view: AVPlayerLayerView, context: Context) {
-        view.player = player
+    func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
+        if vc.player !== player {
+            vc.player = player
+        }
     }
-}
-
-final class AVPlayerLayerView: UIView {
-    var player: AVPlayer? {
-        get { (layer as! AVPlayerLayer).player }
-        set { (layer as! AVPlayerLayer).player = newValue }
-    }
-    var videoGravity: AVLayerVideoGravity {
-        get { (layer as! AVPlayerLayer).videoGravity }
-        set { (layer as! AVPlayerLayer).videoGravity = newValue }
-    }
-    override class var layerClass: AnyClass { AVPlayerLayer.self }
 }
 
 // MARK: - overlay selection box
