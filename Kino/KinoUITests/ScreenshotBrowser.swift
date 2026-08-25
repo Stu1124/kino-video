@@ -63,12 +63,11 @@ final class ScreenshotBrowser: XCTestCase {
         sleep(1)
         snap("editor-scrolled")
 
-        // Transport: play a moment
-        app.swipeDown(velocity: .slow)
 
-        // Export a real render
+
+        // Export a real render (coordinate tap — AX scroll-to-visible is noisy in top bars)
         let exportButton = app.buttons["export-button"]
-        exportButton.tap()
+        exportButton.coordinate(withNormalizedOffset: CGPoint(x: 0.5, y: 0.5)).tap()
         sleep(2)
         snap("export-pre")
 
