@@ -43,7 +43,7 @@ final class ScreenshotBrowser: XCTestCase {
         let sampleEl = app.staticTexts.matching(NSPredicate(format: "label == 'Sample Edit'")).firstMatch
         let card = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'project-card-'")).firstMatch
         let open = card.exists ? card : sampleEl
-        open.tap()
+        open.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
         sleep(1)
         if app.buttons["new-project-button"].exists {
             open.tap()
