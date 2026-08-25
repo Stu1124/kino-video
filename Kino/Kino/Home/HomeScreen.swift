@@ -44,7 +44,7 @@ struct HomeScreen: View {
             .background(KinoTheme.backgroundColor)
             .toolbar(.hidden, for: .navigationBar)
         }
-        .fullScreenCover(item: BindableProject(item: $openProjectID)) { id in
+        .fullScreenCover(item: $openProjectID) { id in
             EditorScreen(projectID: id)
         }
         .sheet(isPresented: $showImporter) {
