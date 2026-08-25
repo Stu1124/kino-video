@@ -67,7 +67,7 @@ final class ScreenshotBrowser: XCTestCase {
 
         // Export a real render (coordinate tap — AX scroll-to-visible is noisy in top bars)
         let exportButton = app.buttons["export-button"]
-        exportButton.coordinate(withNormalizedOffset: CGPoint(x: 0.5, y: 0.5)).tap()
+        exportButton.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
         sleep(2)
         snap("export-pre")
 
