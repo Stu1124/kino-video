@@ -58,11 +58,17 @@ public enum FixtureFactory {
 
         let store = ProjectStore.shared
         let sampleID = base.appendingPathComponent("fixture-project.json")
+        let fixedProjectID = UUID(uuidString: "8F0A6E52-3B11-4C4E-9A20-0D0000000001")!
         var fixturesHost: UUID? = nil
         status = "saving project"
+        // remove any stale duplicate demo projects (idempotency)
+        for sum in store.projects where sum.name == "Sample Edit" && sum.id != fixedProjectID {
+            try? store.delete(sum.id)
+        }
+        _ = store.reloadIndex()
         if !fm.fileExists(atPath: sampleID.path) {
             fixtures = nil
-            var project = KinoProject(meta: .init(name: "Sample Edit"))
+            var project = KinoProject(meta: .init(id: fixedProjectID, name: "Sample Edit"))
             project.assets = [
                 MediaAsset(uri: a.absoluteString, kind: .video, name: "Sunlight",
                            resolution: KVec2(640, 360), duration: KTime(seconds: 5),
@@ -95,7 +101,7 @@ public enum FixtureFactory {
             ]))
             try? store.save(project)
             fixturesHost = project.meta.id
-        } else if let loaded = try? store.load(UUID(uuidString: "00000000-0000-0000-0000-000000000001")!) {
+        } else if let loaded = try? store.load(fixedProjectID) {
             fixturesHost = loaded.meta.id
         }
         fixtures = fixturesHost

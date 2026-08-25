@@ -32,7 +32,7 @@ final class ScreenshotBrowser: XCTestCase {
         snap("home-boot")
 
         // Wait for fixture sample project to appear on home
-        let sample = app.staticTexts["Sample Edit"]
+        let sample = app.staticTexts.matching(NSPredicate(format: "label == 'Sample Edit'")).firstMatch
         let deadline = Date().addingTimeInterval(90)
         while !sample.exists && Date() < deadline {
             sleep(2)
@@ -40,8 +40,9 @@ final class ScreenshotBrowser: XCTestCase {
         XCTAssertTrue(sample.exists, "Sample project should exist after fixture generation")
         snap("home-with-sample")
         // tap the card button (not the inner label) with one retry if home persists
-        let card = app.buttons.matching(identifier: "project-card-").allElementsBoundByIndex.last
-        let open = card ?? sample
+        let sampleEl = app.staticTexts.matching(NSPredicate(format: "label == 'Sample Edit'")).firstMatch
+        let card = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'project-card-'")).firstMatch
+        let open = card.exists ? card : sampleEl
         open.tap()
         sleep(1)
         if app.buttons["new-project-button"].exists {
