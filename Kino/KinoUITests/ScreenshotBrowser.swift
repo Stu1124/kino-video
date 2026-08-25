@@ -43,7 +43,15 @@ final class ScreenshotBrowser: XCTestCase {
         let sampleEl = app.staticTexts.matching(NSPredicate(format: "label == 'Sample Edit'")).firstMatch
         let card = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'project-card-'")).firstMatch
         let open = card.exists ? card : sampleEl
-        open.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        // hittability is unreliable for card buttons; tap via screen coordinates
+        let frame = open.frame
+        if frame.width > 0 {
+            let screen = app.frame
+            let point = CGPoint(x: frame.midX / screen.width, y: frame.midY / screen.height)
+            app.coordinate(withNormalizedOffset: CGVector(dx: point.x, dy: point.y)).tap()
+        } else {
+            open.tap()
+        }
         sleep(1)
         if app.buttons["new-project-button"].exists {
             open.tap()
